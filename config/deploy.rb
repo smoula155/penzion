@@ -2,7 +2,7 @@
 lock '3.1.0'
 
 set :application, 'penzion'
-set :repo_url, 'git@example.com:smoula155/penzion.git'
+set :repo_url, 'git@github.com:smoula155/penzion.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
@@ -34,8 +34,28 @@ set :repo_url, 'git@example.com:smoula155/penzion.git'
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+
 namespace :deploy do
-  on roles :all do
-    execute :chown, "-R :#{fetch(:group)} #{deploy_to} && chmod -R g+s #{deploy_to}"
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      # Your restart mechanism here, for example:
+      # execute :touch, release_path.join('tmp/restart.txt')
+    end
   end
+
+  after :publishing, :restart
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
+    end
+  end
+
+end
+
 end
