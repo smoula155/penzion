@@ -1,0 +1,27 @@
+<%= render :partial => "welcome/container_header",:locals => {:nazev => 'Přehled uživatelů'} -%>
+<table  class="table">
+<thead>
+  <tr>
+    <th> ID </th>
+    <th> Email </th>
+    <th> Jméno </th>
+    <th> Přijmení </th>
+    <th> Telefon </th>
+    <th> Adresa </th>
+    <th> Admin? </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |u|  %>
+    <tr>
+      <td><%=link_to u.id, edit_user_path(u.id) %></td>
+      <td><%= u.email %></td>
+      <td><%= u.jmeno %></td>
+      <td><%= u.prijmeni %></td> 
+      <td><%= u.tel %></td>
+      <td><%= u.address %></td>
+      <td><%= je_admin(u) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

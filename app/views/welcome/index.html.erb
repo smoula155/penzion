@@ -1,0 +1,79 @@
+<%= render :partial => "welcome/container_header",:locals => {:nazev => 'Info'} -%>
+<div class="row">
+    <div class="col-md-6">
+        <img class="img-responsive" src="/pictures/uvodni_fotka.jpg" alt="">
+    </div>
+    <div class="col-md-6">
+        <h2>O penzionu</h2>
+            <p>Penzion se nachází v obcii Dolní Moravice v malebném prostředí Jeseníků v areálu hotelu Avalanche. Jedná se o třípatrový objekt sestávající ze 4 apartmánů různých velikostí a různých vnitřních uspořádání a vybavení pro uspokojení potřeb široké poptávky veřejnosti. Možno pronájmu jednotlivých apartmánů, dvou spodních a vzájemně propojitelných apartmánů i celého penzionu.</p>
+            <p>V blízkosti penzionu spousta možností turistického a sportovního využití nejen v létě ale i v zimě: lyžování - 2 čyřsedačkové lanovky, běžecké trasy, cykloturistika, pěší turistika. K dispozici zázemí hotelového komplexu - bazén, sauna, kurty, konfereční místnosti, restaurace.</p>
+            <p>Možnost objednávky pobytu bez jídla, ale také se snídaní nebo s polopenzí zajištěné v restauraci hotelu Avalanche. </p>  
+    </div>
+</div>
+<div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Možnost pronájmu apartmánů:</h2>
+            </div>
+            <%= link_to room_path(2) do %>
+                <div class="col-md-4 text-center">
+                    <div class="thumbnail">
+                       <img class="img-responsive" src="/pictures/110.JPG" alt="">
+                        <div class="caption">
+                            <h3>Apartmán 110</h3>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+            <%= link_to room_path(1) do %>
+                <div class="col-md-4 text-center">
+                    <div class="thumbnail">
+                        <img class="img-responsive" src="/pictures/109.JPG" alt="">
+                        <div class="caption">
+                            <h3>Apartmán 109</h3>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+            <%= link_to room_path(5) do %>
+                <div class="col-md-4 text-center">
+                    <div class="thumbnail">
+                       <img class="img-responsive" src="/pictures/spodni.JPG" alt="">
+                        <div class="caption">
+                            <h3>Spodní patro</h3>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+            <%= link_to room_path(3) do %>
+                <div class="col-md-4 text-center">
+                    <div class="thumbnail">
+                        <img class="img-responsive" src="/pictures/111.JPG" alt="">
+                        <div class="caption">
+                            <h3>Apartmán 111</h3>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+            <%= link_to room_path(4) do %>
+                <div class="col-md-4 text-center">
+                    <div class="thumbnail">
+                        <img class="img-responsive" src="/pictures/112.JPG" alt="">
+                        <div class="caption">
+                            <h3>Apartmán 112</h3>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+            <%= link_to room_path(6) do %>
+                <div class="col-md-4 text-center">
+                    <div class="thumbnail">
+                     	<img class="img-responsive" src="/pictures/cely.JPG" alt="">
+                        <div class="caption">
+                            <h3>Celý penzion</h3>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+

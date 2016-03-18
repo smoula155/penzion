@@ -1,0 +1,33 @@
+<div class="row">
+  <%= render :partial => "welcome/container_header",:locals => {:nazev => 'Editace uživatele'} -%>
+  <%= form_for(@user) do |f| %>
+    <div class='col-md-7'>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4> Úprava uživatele </h4>
+        </div>    
+        <div class="panel-body">
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.text_field :email, class:'form-control' %>
+          </div>   
+          <div class="form-group">
+             <%= f.label :jmeno %>
+             <%= f.text_field :jmeno, class:'form-control' %>
+          </div>   
+          <div class="form-group">
+              <%= f.label :prijmeni%>
+              <%= f.text_field :prijmeni, class:'form-control'%>
+          </div>   
+          <div class="form-group">
+              <%= f.label :admin %>
+              <%= f.check_box :admin, class:'form-control' %>
+          </div>   
+          <div >
+              <%= f.submit %>
+          </div>   
+        </div>
+      </div>
+    </div>
+  <%end %>    
+</div>

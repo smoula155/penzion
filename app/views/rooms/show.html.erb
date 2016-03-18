@@ -1,0 +1,89 @@
+<%= render :partial => "welcome/container_header",:locals => {:nazev => "#{name_rooms(@room.typ)}"} -%>
+<div class="row">
+    <div class="col-md-8">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img class="img-responsive" src="/pictures/<%= "#{file_pictures(@room.typ)}" %>/1.JPG" alt="">
+            </div>
+                        <div class="item">
+                            <img class="img-responsive" src="/pictures/<%= "#{file_pictures(@room.typ)}" %>/2.JPG"  alt="">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="/pictures/<%= "#{file_pictures(@room.typ)}" %>/3.JPG"  alt="">
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+
+        <div class="col-md-4">
+            <h3>Popis:</h3>
+                <p><%= description_room(@room.typ)%></h3>
+        </div>
+
+    </div>
+        <!-- /.row -->
+
+        <!-- Related Projects Row -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header">Fotografie</h3>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive img-hover img-related" src="/pictures/<%= "#{file_pictures(@room.typ)}" %>/1.JPG"  alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive img-hover img-related" src="/pictures/<%= "#{file_pictures(@room.typ)}" %>/2.JPG"  alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive img-hover img-related" src="/pictures/<%= "#{file_pictures(@room.typ)}" %>/3.JPG"  alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive img-hover img-related" src="/pictures/<%= "#{file_pictures(@room.typ)}" %>/4.JPG"  alt="">
+                </a>
+            </div>
+
+             <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive img-hover img-related" src="/pictures/<%= "#{file_pictures(@room.typ)}" %>/5.JPG"  alt="">
+                </a>
+            </div>
+
+             <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive img-hover img-related" src="/pictures/<%= "#{file_pictures(@room.typ)}" %>/6.JPG"  alt="">
+                </a>
+            </div>
+
+             <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive img-hover img-related" src="/pictures/<%= "#{file_pictures(@room.typ)}" %>/7.JPG"  alt="">
+                </a>
+            </div>
+
+        </div>

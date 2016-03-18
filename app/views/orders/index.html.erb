@@ -1,0 +1,26 @@
+<%= render :partial => "welcome/container_header",:locals => {:nazev => 'Přehled objednávek'} -%>
+<%= link_to "Nová objednávka", new_order_path, id: "new_record", class:"btn btn-primary"%>
+<table  class="table">
+<thead>
+  <tr>
+    <th> Číslo obědnávky </th>
+    <th> Od data </th>
+    <th> Do data </th>
+    <th> Typ pokoje </th>
+    <th> Cena </th>
+    <th>  </th>
+  </tr>
+  </thead>
+  <tbody>
+   <% @orders.each do |o|  %>
+    <tr>
+      <td><%=link_to o.id, edit_order_path(o.id) %></td>
+      <td><%= o.from_date %></td>
+      <td><%= o.to_date%></td>
+      <td><%= rooms_name(o.room.typ) %></td> 
+      <td><%= o.price %></td> 
+    </tr>
+  <% end unless @orders.nil? %>
+  </tbody>
+</table>
+
