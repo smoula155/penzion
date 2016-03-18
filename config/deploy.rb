@@ -23,10 +23,10 @@ set :repo_url, 'git@example.com:smoula155/penzion.git'
 # set :pty, true
 
 # Default value for :linked_files is []
-# set :linked_files, %w{config/database.yml}
+ set :linked_files, %w{config/database.yml config/secrets.yml}
 
 # Default value for linked_dirs is []
-# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -35,10 +35,6 @@ set :repo_url, 'git@example.com:smoula155/penzion.git'
 # set :keep_releases, 5
 
 namespace :deploy do
-
-  on roles :all do
-    execute :chown, "-R :#{fetch(:group)} #{deploy_to} && chmod -R g+s #{deploy_to}"
-  end
 
   desc 'Restart application'
   task :restart do
