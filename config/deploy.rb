@@ -34,3 +34,8 @@ set :repo_url, 'git@example.com:smoula155/penzion.git'
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+namespace :deploy do
+  on roles :all do
+    execute :chown, "-R :#{fetch(:group)} #{deploy_to} && chmod -R g+s #{deploy_to}"
+  end
+end
