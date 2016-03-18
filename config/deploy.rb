@@ -1,5 +1,5 @@
 # config valid only for Capistrano 3.1
-lock '3.1.0'
+lock '3.4.0'
 
 set :application, 'penzion'
 set :repo_url, 'git@github.com:smoula155/penzion.git'
@@ -8,7 +8,8 @@ set :repo_url, 'git@github.com:smoula155/penzion.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
- set :deploy_to, '/home/deploy/penzion'
+set :rbenv_path, '/home/your/.rbenv/'
+set :deploy_to, '/home/deploy/penzion'
 
 # Default value for :scm is :git
 # set :scm, :git
