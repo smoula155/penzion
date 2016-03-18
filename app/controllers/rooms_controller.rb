@@ -2,6 +2,7 @@ class RoomsController < ApplicationController
 	before_filter :find_room, only: :show
 
 	def show
+		@images = @room.images
 	end
 
 	private

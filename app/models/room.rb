@@ -1,5 +1,6 @@
 class Room < ActiveRecord::Base
   has_many :orders 
+  has_many :images 
 
   ROOMS109 = 1
   ROOMS110 = 2

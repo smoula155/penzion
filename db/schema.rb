@@ -11,21 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304155546) do
+ActiveRecord::Schema.define(version: 20160316183348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "images", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.integer  "room_id"
+  end
+
   create_table "orders", force: :cascade do |t|
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.date     "from_date",                  null: false
-    t.date     "to_date",                    null: false
-    t.integer  "room_id",                    null: false
-    t.integer  "user_id",                    null: false
-    t.boolean  "authorized", default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.date     "from_date",                      null: false
+    t.date     "to_date",                        null: false
+    t.integer  "room_id",                        null: false
+    t.integer  "user_id",                        null: false
+    t.boolean  "authorized",     default: false
     t.float    "price"
     t.integer  "status"
+    t.boolean  "agress_licence"
   end
 
   create_table "rooms", force: :cascade do |t|

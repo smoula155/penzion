@@ -1,0 +1,22 @@
+<%= render :partial => "welcome/container_header",:locals => {:nazev => 'Obrázky'} -%>
+<%= link_to "Nový obrázek", new_image_path, id: "new_record", class:"btn btn-primary"%>
+<table  class="table">
+<thead>
+  <tr>
+    <th> ID </th>
+    <th> Name </th>
+    <th> Link na obrázek </th>
+    <th> Apartmán </th>
+  </tr>
+  </thead>
+  <tbody>
+    <%@images.each do |o|  %>
+    <tr>
+      <td><%= o.id %></td>
+    	<td><%= o.picture_file_name %></td>
+    	<td><%= link_to "Zobraz obrázek" ,o.picture.url %></td>
+      <td><%= o.room_id %></td>
+    </tr>
+  <% end unless @images.nil? %> %>
+  </tbody>
+</table>
