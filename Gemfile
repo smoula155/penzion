@@ -52,7 +52,7 @@ group :development do
   gem 'spring'
   gem 'capistrano'
   gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
+  gem 'capistrano-rbenv', github: "capistrano/rbenv"
 # Add this if you're using rbenv
 # gem 'capistrano-rbenv', github: "capistrano/rbenv"
 end
