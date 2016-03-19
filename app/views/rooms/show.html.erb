@@ -33,6 +33,13 @@
                     <p><%= description_room(@room.typ)%></p>
             </div>
         </div>
+        <div class="row">
+    <div class="col-md-8">
+        <%= month_calendar do |date| %>
+            <%= date %>
+        <% end %>
+        </div>
+        </div>
         <!-- /.row -->
         <!-- Related Projects Row -->
         <div class="row">
