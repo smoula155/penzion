@@ -63,6 +63,9 @@ GEM
     capistrano-rails (1.1.6)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rbenv-install (1.2.0)
+      capistrano (>= 3.0)
+      capistrano-rbenv (>= 2.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -229,6 +232,7 @@ DEPENDENCIES
   capistrano
   capistrano-rails
   capistrano-rbenv!
+  capistrano-rbenv-install (~> 1.2.0)
   coffee-rails (~> 4.1.0)
   devise
   devise-bootstrap-views

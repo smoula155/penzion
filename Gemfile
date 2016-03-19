@@ -53,6 +53,7 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv', github: "capistrano/rbenv"
+  gem 'capistrano-rbenv-install', '~> 1.2.0'
 # Add this if you're using rbenv
 # gem 'capistrano-rbenv', github: "capistrano/rbenv"
 end
