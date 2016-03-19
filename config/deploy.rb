@@ -3,10 +3,9 @@ lock '3.4.0'
 
 set :application, 'penzion'
 set :repo_url, 'git@github.com:smoula155/penzion.git'
-
+set :default_env, { path: "~/.rbenv/shims:~/.rbenv/bin:$PATH" }
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
-
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/home/deploy/penzion'
 
