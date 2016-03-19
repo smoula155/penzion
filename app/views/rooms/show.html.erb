@@ -1,6 +1,6 @@
 <%= render :partial => "welcome/container_header",:locals => {:nazev => "#{name_rooms(@room.typ)}"} -%>
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-7">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -28,17 +28,13 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <h3>Popis:</h3>
                     <p><%= description_room(@room.typ)%></p>
+                    <%= month_calendar do |date| %>
+                        <%= date.day %>
+                    <% end %>
             </div>
-        </div>
-        <div class="row">
-    <div class="col-md-4">
-        <%= month_calendar do |date| %>
-            <%= date.day %>
-        <% end %>
-        </div>
         </div>
         <!-- /.row -->
         <!-- Related Projects Row -->
