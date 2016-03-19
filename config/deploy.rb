@@ -8,7 +8,6 @@ set :repo_url, 'git@github.com:smoula155/penzion.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :rbenv_path, '/home/deploy/.rbenv'
 set :deploy_to, '/home/deploy/penzion'
 
 # Default value for :scm is :git
