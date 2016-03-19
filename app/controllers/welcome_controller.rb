@@ -6,5 +6,6 @@ class WelcomeController < ApplicationController
   end
 
   def pictures
+  	@images = Image.all
   end
 end
