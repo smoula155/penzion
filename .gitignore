@@ -2,6 +2,6 @@
 /log/*
 !/log/.keep
 /tmp
-
+/public/system/images/*
 config/database.yml
 config/secrets.yml
