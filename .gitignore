@@ -5,3 +5,4 @@
 /public/system/images/*
 config/database.yml
 config/secrets.yml
+tmp/*

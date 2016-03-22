@@ -6,6 +6,7 @@ class Order < ActiveRecord::Base
   validates :to_date, presence: true
   validates :room_id, presence: true
   validate :val_price
+  validate :val_from_date
 
 
   scope :for_user, ->(user_id){where user_id: user_id}
@@ -21,4 +22,8 @@ class Order < ActiveRecord::Base
       		errors.add(:price, "Zadaná špatná výsledná cena")
     	end
   	end
+
+    def val_from_date
+      errors.add(:from_date, "Datum musí být minimálně dnešní") if from_date < Date.today
+    end
 end

@@ -29,6 +29,7 @@
                 </div>
             </div>
             <div class="col-md-5">
+            <%= link_to 'Vytvořit obědnávku', new_order_path(), class:"btn btn-primary" %>
                 <h3>Popis:</h3>
                     <p><%= description_room(@room.typ)%></p>
                     <%= month_calendar do |date| %>

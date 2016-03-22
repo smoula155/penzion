@@ -13,8 +13,8 @@ en:
       invalid_token: "Invalid authentication token."
       locked: "Your account is locked."
       not_found_in_database: "Invalid email or password."
-      timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
+      timeout: "Pro pokračování se musíte přihlásit!"
+      unauthenticated: "Pro pokračování se musíte přihlásit!"
       unconfirmed: "You have to confirm your account before continuing."
     mailer:
       confirmation_instructions:
@@ -63,7 +63,7 @@ en:
         unhappy: "Unhappy"
         back: "Back"
       new:
-        sign_up: "Sign up"
+        sign_up: "Registrace"
       destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
@@ -75,15 +75,15 @@ en:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       new:
-        sign_in: "Sign in"
+        sign_in: "Přihlášení"
     shared:
       links:
         didn_t_receive_confirmation_instructions: "Didn't receive confirmation instructions?"
         didn_t_receive_unlock_instructions: "Didn't receive unlock instructions?"
         forgot_your_password: "Forgot your password?"
-        sign_in: "Sign in"
+        sign_in: "Přihlášení"
         sign_in_with_provider: "Sign in with %{provider}"
-        sign_up: "Sign up"
+        sign_up: "Odhlášení"
     unlocks:
       new:
         resend_unlock_instructions: "Resend unlock instructions"
@@ -107,5 +107,5 @@ en:
       user:
         current_sign_in_at: "Signed in at"
         email: "Email"
-        password: "Password"
+        password: "Heslo"
         last_sign_in_at: "Last signed in at"

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   
-  before_action :authenticate_user!, only: :index
+  before_action :authenticate_user!, only: [:index, :new]
   before_filter :find_user, only: [:new, :create]
   before_filter :filtr_by_rooms, only: :create
 
@@ -12,15 +12,14 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.user_id = current_user.id
-    
+    @order.user_id = @user.id
     respond_to do |format|
       if @order.save
         flash[:success] = 'Obědnávka úspěšně vytvořena.'
         format.html { redirect_to orders_path }
         format.json { render :show, status: :created, location: @message }
       else
-        flash[:danger] = 'Obědnávka nebyla vytvořena!!'
+        flash[:danger] = @order.errors.messages.map{|a| a.last}.join
         format.html { render :new }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
