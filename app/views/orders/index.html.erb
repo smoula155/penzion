@@ -8,17 +8,22 @@
     <th> Do data </th>
     <th> Typ pokoje </th>
     <th> Cena </th>
-    <th>  </th>
+    <th> Stav </th>
   </tr>
   </thead>
   <tbody>
    <% @orders.each do |o|  %>
     <tr>
-      <td><%=link_to o.id, edit_order_path(o.id) %></td>
+      <% if current_user.admin? %>
+        <td><%=link_to o.id, edit_order_path(o.id) %></td>
+      <% else %>
+        <td><%= o.id %></td>
+      <% end %>
       <td><%= o.from_date %></td>
       <td><%= o.to_date%></td>
       <td><%= rooms_name(o.room.typ) %></td> 
       <td><%= o.price %></td> 
+      <td><%= order_status(o.status) %></td> 
     </tr>
   <% end unless @orders.nil? %>
   </tbody>

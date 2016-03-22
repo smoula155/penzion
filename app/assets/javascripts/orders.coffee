@@ -67,11 +67,11 @@ change_price = () ->
 	type_rooms = $('#order_room_id').val()
 	betwen = betwen_date(from_date,to_date)
 	if betwen > 0
-		$('#order_price').val(Price.price_for_time(betwen, type_rooms))
+		$('#order_price_new').val(Price.price_for_time(betwen, type_rooms))
 		$('#price_show').val(Price.price_for_time_show(betwen, type_rooms))
 	else
 		$('#price_show').val("Vyberte jinný rozsah datumů")
-		$('#order_price').val("Vyberte jinný rozsah datumů")
+		$('#order_price_new').val("Vyberte jinný rozsah datumů")
 
 
 #fix kvuli turbolinku

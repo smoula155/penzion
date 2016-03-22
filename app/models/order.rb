@@ -16,6 +16,11 @@ class Order < ActiveRecord::Base
   scope :form_all_bottom_rooms, ->{where 'room_id = 1 OR room_id = 2'}
   scope :form_all_rooms, ->{where 'room_id IN (?)', Room::ONE_ROOMS}
 
+  STATUS_NEW = 1
+  
+  TYPE_STATUS = [['Nová obědnávka',STATUS_NEW]]
+
+
   private
   	def val_price
   		unless price.present? && price > 0

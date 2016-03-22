@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.user_id = @user.id
+    @order.status  = Order::STATUS_NEW
     respond_to do |format|
       if @order.save
         flash[:success] = 'Obědnávka úspěšně vytvořena.'
@@ -32,6 +33,11 @@ class OrdersController < ApplicationController
     else
       @orders = Order.for_user(current_user.id) 
     end
+  end
+
+  def edit
+    @order = Order.find params[:id]
+    @user = @order.user
   end
 
   private

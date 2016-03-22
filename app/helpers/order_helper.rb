@@ -18,4 +18,14 @@ module OrderHelper
   				'nedefinovaný'
   		end
 	end
+
+
+  def order_status(status)
+    case status
+      when Order::STATUS_NEW
+        'Nová obědnávka'
+      else
+        'nedef'
+    end 
+  end
 end
