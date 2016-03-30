@@ -1,15 +1,37 @@
 <%= form_for(@order) do |o| %>
- <div class='col-sm-6'>
   <div class="panel panel-default">
     <div class="panel-heading">
         <h4> Nová objednávka </h4>
     </div>    
     <div class="panel-body">
-        <div class="form-group control-group">
-          <div class="controls">
+      <div class='col-sm-6'>
+      <% if current_user.admin? %>
+            <div class="form-group">
+                <p> Stav </p>
+                <%= o.select :status ,Order::TYPE_STATUS,{}, {class: 'form-control'} %>
+            </div>
+        <% end %>
+        <div class="form-group">
+            <p> Od data </p>
+            <%= o.text_field :from_date, class: 'datepicker form-control', type: "text" , :required => true %>
+        </div> 
+        <div class="form-group">
+            <p> Do data </p>
+            <%= o.text_field :to_date, class: 'datepicker form-control', type: "text" , :required => true %>
+        </div>   
+        <div class="form-group">
+            <p> Typ apartmánu </p>
+            <%= o.select :room_id, Room::TYPE_ROOMS,{}, {class: 'form-control'} %>
+        </div> 
+        <div class="form-group">
+            <p> Výsledná cena </p>
+            <%= o.text_field :price, class: 'form-control'%>
+        </div>  
+        </div>
+      <div class='col-sm-6'>
+        <div class="form-group">
             <p> Email </p>
             <%= text_field_tag 'user[email]' ,@user.email ,class: 'form-control', type: 'email',  :required => true %>
-          </div>
         </div>   
         <div class="form-group">
             <p> Jméno </p>
@@ -27,35 +49,14 @@
             <p> Adresa </p>
             <%= text_field_tag 'user[address]' ,@user.address ,class: 'form-control', type: "text" , :required => true %>
         </div> 
-        <div class="form-group">
-            <%= o.label :from_date, 'Od data' %>
-            <%= o.text_field :from_date, class: 'datepicker form-control', type: "text" , :required => true %>
-        </div> 
-        <div class="form-group">
-            <%= o.label :to_date, 'Do data' %>
-            <%= o.text_field :to_date, class: 'datepicker form-control', type: "text" , :required => true %>
-        </div>   
-        <div class="form-group">
-            <%= o.label :room_id, 'Typ apartmánu' %>
-            <%= o.select :room_id, Room::TYPE_ROOMS,{}, {class: 'form-control'} %>
-        </div> 
-        <div class="form-group">
-            <%= o.label :price, 'Výsledná cena' %>
-            <%= o.text_field :price, class: 'form-control'%>
-        </div>  
-        <% if current_user.admin? %>
-            <div class="form-group">
-                <%= o.label :status, 'Statuss' %>
-                <%= o.select :status ,Order::TYPE_STATUS,{}, {class: 'form-control'} %>
-            </div>
-        <% end %>
+        </div>
         <div id="success"></div>
         <div class="form-group">
             <%= o.submit 'Uložit obědnávku' , class:"btn btn-primary"%>
         </div>   
     </div>
   </div>
- </div>
+
 <% end %>
 
 <script type="text/javascript">

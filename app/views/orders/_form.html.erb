@@ -1,107 +1,113 @@
 <%= form_for(@order) do |o| %>
- <div class='col-sm-6'>
+
   <div class="panel panel-default">
     <div class="panel-heading">
         <h4> Nová objednávka </h4>
     </div>    
-    <div class="panel-body">
-        <div class="form-group control-group">
-          <div class="controls">
-            <p> Email </p>
-            <%= text_field_tag 'user[email]' ,@user.email ,class: 'form-control', type: 'email',  :required => true %>
-          </div>
-        </div>   
-        <div class="form-group">
-            <p> Jméno </p>
-            <%= text_field_tag 'user[jmeno]' ,@user.jmeno ,class: 'form-control', type: "text" , :required => true %>
-        </div>   
-        <div class="form-group">
-            <p> Přijmení </p>
-            <%= text_field_tag 'user[prijmeni]' ,@user.prijmeni ,class: 'form-control', type: "text" , :required => true %>
-        </div>  
-         <div class="form-group">
-            <p> Telefon </p>
-            <%= text_field_tag 'user[address]' ,@user.address ,class: 'form-control', type: "tel" , :required => true %>
-        </div>  
-        <div class="form-group">
-            <p> Adresa </p>
-            <%= text_field_tag 'user[tel]' ,@user.tel ,class: 'form-control', type: "text" , :required => true %>
-        </div> 
-        <div class="form-group">
-            <%= o.label :from_date, 'Od data' %>
-            <%= o.text_field :from_date, class: 'datepicker form-control', type: "text" , :required => true %>
-        </div> 
-        <div class="form-group">
-            <%= o.label :to_date, 'Do data' %>
-            <%= o.text_field :to_date, class: 'datepicker form-control', type: "text" , :required => true %>
-        </div>   
-        <div class="form-group">
-            <%= o.label :room_id, 'Typ apartmánu' %>
-            <%= o.select :room_id, Room::TYPE_ROOMS,{}, {class: 'form-control'} %>
-        </div> 
-        <div class="form-group">
-            <%= o.hidden_field :price , class: 'order_price_new' %>
-            <%= o.label :price, 'Výsledná cena' %>
-             <input class="form-control" id="price_show" type="text" placeholder="Výsledná cena zde" disabled>
+    <div class="panel-body"> 
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <p> Od data </p>
+                <%= o.text_field :from_date, class: 'datepicker form-control', type: "text" , :required => true %>
+            </div> 
+            <div class="form-group">
+                <p> Do data </p>
+                <%= o.text_field :to_date, class: 'datepicker form-control', type: "text" , :required => true %>
+            </div>   
+            <div class="form-group">
+                <p> Typ apartmánu </p>
+                <%= o.select :room_id, Room::TYPE_ROOMS,{}, {class: 'form-control'} %>
+            </div> 
+            <div class="form-group">
+                <%= o.hidden_field :price , class: 'order_price_new' %>
+                <%= o.label :price, 'Výsledná cena' %>
+                 <input class="form-control" id="price_show" type="text" placeholder="Výsledná cena zde" disabled>
+            </div> 
         </div>
-        <div class="form-group">
-            <%= o.label :agress_licence, 'Souhlasíte s obchodními podmínkami a provozním řádem' %><br>
-            <%= o.check_box :agress_licence ,  type: "checkbox" , :required => true%>
-            <blockquote  id = "licence">
-                <h3>Všeobecné obchodní podmínky</h3>
-                <h4>Všeobecné obchodní a storno podmínky - Penzion Whitezralok </h4>
-                <p>Všeobecné obchodní a storno podmínky (dále jen podmínky) Penzionu Whitezralok (dále jen penzion) upravují vzájemný smluvní vztah mezi provozovatelem penzionu – Marian Jašek, Ztracená 322/1, 779 00 Olomouc, IČ 45228027 (dále jen provozovatelem) a klientem - fyzickou nebo právnickou osobou, která pobyt v penzionu jako objednatel objednává (dále jen klient).
-                </p>
-                <h4>I. Objednávka pobytu, vznik smluvního vztahu </h4>
-                <p>Klient si objednává  služby v penzionu zadáním objednávky přes rezervační rozhraní na internetových stránkách penzionu. Podstatné náležitosti zakládající řádně vystavenou objednávku nebo požadavek na rezervaci jsou:  jméno a příjmení klienta, adresa trvalého bydliště, kontakt (telefon, e-mail), v případě právnických osob obchodní jméno, IČ, DIČ, termín čerpání služeb. Předané osobní údaje klienta uvedené v objednávce nebo rezervaci pobytu použije penzion pouze pro uzavíraný smluvní vztah mezi penzionem a klientem. <br><br> Po řádně vystavené a podané objednávce je klient tímto dokumentem vázán. Potvrzením objednávky penzionem (dle čl. IV těchto podmínek) vzniká mezi klientem a penzionem smluvní vztah. Penzion se zavazuje zabezpečit klientovi služby v potvrzeném rozsahu a kvalitě a klient zaplatit penzionu smluvenou cenu. Podmínky smluvního vztahu platí pro všechny osoby uvedené v objednávce, kterou klient podal a penzion potvrdil.
-                </p>
-                <h4>II. Práva a povinnosti klienta</h4>
-                <p>Klient má právo: <br> Být dostatečně a úplně informován penzionem o objednávaných službách, tj. jejich rozsahu, termínu a ceně, na řádné poskytnutí jím objednaných, penzionem potvrzených a zaplacených služeb,před zahájením pobytu zrušit potvrzenou objednávku za předpokladu dodržení stornovacích podmínek v souladu s čl. VII.,reklamovat vady poskytovaných služeb.<br><br>Klient je povinen: <br>Úplně a správně uvést všechny podstatné náležitosti objednávky, zaplatit penzionu v požadovaném termínu  plnou cenu za pobyt, respektovat předpisy zařízení, jejichž služby využívá, pečlivě si překontrolovat penzionem vystavené potvrzení pobytu (ubytovací voucher) a při zjištění jakékoliv nesrovnalosti kontaktovat neprodleně penzion.
-                </p>
-                <h4>III. Povinnosti penzionu ke klientovi </h4>
-                <p>Penzion je povinen:<br>Poskytnout klientovi důležité informace k objednaným službám, potvrdit klientovi řádně objednané služby. Při závazné rezervaci nebo potvrzené objednávce zabezpečit klientovi služby v potvrzeném rozsahu a kvalitě. V případě odstoupení od potvrzené objednávky služeb ze strany klienta vyplatit nejpozději do 14 dnů po písemném obdržení storna zaplacenou částku na služby. Avšak pokud vznikne nárok penzionu na stornovací poplatky, vyplatí klientovi rozdíl mezi již zaplacenou zálohou a příslušnými stornovacími poplatky. </p>
-                <h4>IV. Ceny služeb a jejich úhrada</h4>
-                <p>Ceny služeb poskytovaných penzionem jsou uvedeny v objednávkovém systému a u jednotlivých pronajímaných apartmánů.Klient má nárok na slevu ve výši 10% z ceny ubytování při objednávce na 3-5 nocí, a ve výši 20% při objednávce na 6 a více nocí.Úhrada služeb je možná pouze na základě vystavené faktury penzionem. Tato faktura je klientovi doručena emailem nejpozději do 2 pracovních dní od vytvoření objednávky. Po zaplacení faktury je klientovi doručeno potvrzení služeb.
-                </p>
-                <h4>V. Potvrzení pobytu</h4>
-                <p>K čerpání zaplacených služeb opravňuje klienta potvrzení vystavené emailem penzionem nejpozději do 2 dní od zaplacení. Klient je povinen překontrolovat správnost údajů na potvrzení uvedených. Při zjištění jakékoliv nesrovnalosti kontaktuje klient neprodleně penzion emailem whitezralok@atlas.cz nebo telefonicky na čísle 777 344 348.
-                </p>
-                <h4>VI. Nástup</h4>
-                <p>Při nástupu se klient penzionu prokáže občanským průkazem, pasem nebo jiným průkazem totožnosti a potvrzením vystaveným penzionem. Po splnění uvedených formalit recepce klienta ubytuje a poskytne mu další informace k pobytu či k jiným objednaným službám. Nástup je možný v den nástupu po 15:00.Ukončení ubytování je poslední den pobyto nejpozději do 10:00. Klient je zavazuje předat apartmán ve stavu jak ho přejímal.
-                </p>
-                <h4>VII. Stornovací podmínky</h4>
-                <p>Klient má právo kdykoliv pobyt zrušit, tj. odstoupit od potvrzené objednávky/rezervačního požadavku pobytu za níže uvedených podmínek. Toto odstoupení ze strany klienta (dále jen storno) musí být provedeno písemnou formou a prokazatelně doručeno penzionu. Storno podmínky se vztahují na zrušení rezervace ubytovacích, stravovacích a ostatních služeb ze strany objednavatele. Při zrušení rezervace od data, kdy rezervace byla hostem zadána do 120 hodin před předpokládaným začátkem čerpání služeb (tzn. nejpozději do 14:00 hodin 5 dní před datem příjezdu) si penzion neúčtuje storno poplatek.Při zrušení rezervace 48 až 120 hodin před předpokládaným začátkem čerpání služeb dle potvrzené objednávky (tzn. nejpozději do 14:00 hodin 2 den před datem příjezdu) je penzion oprávněn si účtovat storno poplatek ve výši 50% z objednaných služeb dle potvrzené objednávky.Při zrušení rezervace 48 hodin a méně před předpokládaným začátkem čerpání služeb dle potvrzené objednávky (tzn. mezi 14:00 hodin předvčerejšího dne až začátkem rezervovaných služeb) je penzion oprávněn účtovat storno poplatek ve výši 100 % z objednaných služeb dle potvrzené objednávky.
-                </p>
-                <h4>VIII. Závěrečná ustanovení</h4>
-                <p>Tyto obchodní a storno podmínky jsou nedílnou součástí objednávky služeb.Celková ceny za poskytnuté služby bude uhrazena na základě vystaveného účetního dokladu (příjmový doklad, faktura), dle tam uvedených podmínek, který bude klientovi doručen do 2 pracovních dní od provedení závazné objednávky.Platbu lze provést převodem na základě vydané faktury. Platbu nelze provést platební kartou.Všeobecné obchodní a storno podmínky vstupují v platnost dne 1. 3. 2016. Změny a doplňky těchto podmínek mohou být individuálně mezi penzionem a klientem upraveny výlučně písemnou formou.
-                </p><br><br>
-            </blockquote>
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <p> Email </p>
+                <%= text_field_tag 'user[email]' ,@user.email ,class: 'form-control', type: 'email',  :required => true %>
+            </div>   
+            <div class="form-group">
+                <p> Jméno </p>
+                <%= text_field_tag 'user[jmeno]' ,@user.jmeno ,class: 'form-control', type: "text" , :required => true %>
+            </div>   
+            <div class="form-group">
+                <p> Přijmení </p>
+                <%= text_field_tag 'user[prijmeni]' ,@user.prijmeni ,class: 'form-control', type: "text" , :required => true %>
+            </div>  
+             <div class="form-group">
+                <p> Telefon </p>
+                <%= text_field_tag 'user[address]' ,@user.address ,class: 'form-control', type: "tel" , :required => true %>
+            </div>  
+            <div class="form-group">
+                <p> Adresa </p>
+                <%= text_field_tag 'user[address]' ,@user.address ,class: 'form-control', type: "text" , :required => true %>
+            </div> 
+        </div>        
+        <div class='col-sm-7'>
+            <div class="form-group">
+                <blockquote  id = "licence">
+                    <h3>Všeobecné obchodní podmínky</h3>
+                    <h4>Všeobecné obchodní a storno podmínky - Penzion Whitezralok </h4>
+                    <p>Všeobecné obchodní a storno podmínky (dále jen podmínky) Penzionu Whitezralok (dále jen penzion) upravují vzájemný smluvní vztah mezi provozovatelem penzionu – Marian Jašek, Ztracená 322/1, 779 00 Olomouc, IČ 45228027 (dále jen provozovatelem) a klientem - fyzickou nebo právnickou osobou, která pobyt v penzionu jako objednatel objednává (dále jen klient).
+                    </p>
+                    <h4>I. Objednávka pobytu, vznik smluvního vztahu </h4>
+                    <p>Klient si objednává  služby v penzionu zadáním objednávky přes rezervační rozhraní na internetových stránkách penzionu. Podstatné náležitosti zakládající řádně vystavenou objednávku nebo požadavek na rezervaci jsou:  jméno a příjmení klienta, adresa trvalého bydliště, kontakt (telefon, e-mail), v případě právnických osob obchodní jméno, IČ, DIČ, termín čerpání služeb. Předané osobní údaje klienta uvedené v objednávce nebo rezervaci pobytu použije penzion pouze pro uzavíraný smluvní vztah mezi penzionem a klientem. <br><br> Po řádně vystavené a podané objednávce je klient tímto dokumentem vázán. Potvrzením objednávky penzionem (dle čl. IV těchto podmínek) vzniká mezi klientem a penzionem smluvní vztah. Penzion se zavazuje zabezpečit klientovi služby v potvrzeném rozsahu a kvalitě a klient zaplatit penzionu smluvenou cenu. Podmínky smluvního vztahu platí pro všechny osoby uvedené v objednávce, kterou klient podal a penzion potvrdil.
+                    </p>
+                    <h4>II. Práva a povinnosti klienta</h4>
+                    <p>Klient má právo: <br> Být dostatečně a úplně informován penzionem o objednávaných službách, tj. jejich rozsahu, termínu a ceně, na řádné poskytnutí jím objednaných, penzionem potvrzených a zaplacených služeb,před zahájením pobytu zrušit potvrzenou objednávku za předpokladu dodržení stornovacích podmínek v souladu s čl. VII.,reklamovat vady poskytovaných služeb.<br><br>Klient je povinen: <br>Úplně a správně uvést všechny podstatné náležitosti objednávky, zaplatit penzionu v požadovaném termínu  plnou cenu za pobyt, respektovat předpisy zařízení, jejichž služby využívá, pečlivě si překontrolovat penzionem vystavené potvrzení pobytu (ubytovací voucher) a při zjištění jakékoliv nesrovnalosti kontaktovat neprodleně penzion.
+                    </p>
+                    <h4>III. Povinnosti penzionu ke klientovi </h4>
+                    <p>Penzion je povinen:<br>Poskytnout klientovi důležité informace k objednaným službám, potvrdit klientovi řádně objednané služby. Při závazné rezervaci nebo potvrzené objednávce zabezpečit klientovi služby v potvrzeném rozsahu a kvalitě. V případě odstoupení od potvrzené objednávky služeb ze strany klienta vyplatit nejpozději do 14 dnů po písemném obdržení storna zaplacenou částku na služby. Avšak pokud vznikne nárok penzionu na stornovací poplatky, vyplatí klientovi rozdíl mezi již zaplacenou zálohou a příslušnými stornovacími poplatky. </p>
+                    <h4>IV. Ceny služeb a jejich úhrada</h4>
+                    <p>Ceny služeb poskytovaných penzionem jsou uvedeny v objednávkovém systému a u jednotlivých pronajímaných apartmánů.Klient má nárok na slevu ve výši 10% z ceny ubytování při objednávce na 3-5 nocí, a ve výši 20% při objednávce na 6 a více nocí.Úhrada služeb je možná pouze na základě vystavené faktury penzionem. Tato faktura je klientovi doručena emailem nejpozději do 2 pracovních dní od vytvoření objednávky. Po zaplacení faktury je klientovi doručeno potvrzení služeb.
+                    </p>
+                    <h4>V. Potvrzení pobytu</h4>
+                    <p>K čerpání zaplacených služeb opravňuje klienta potvrzení vystavené emailem penzionem nejpozději do 2 dní od zaplacení. Klient je povinen překontrolovat správnost údajů na potvrzení uvedených. Při zjištění jakékoliv nesrovnalosti kontaktuje klient neprodleně penzion emailem whitezralok@atlas.cz nebo telefonicky na čísle 777 344 348.
+                    </p>
+                    <h4>VI. Nástup</h4>
+                    <p>Při nástupu se klient penzionu prokáže občanským průkazem, pasem nebo jiným průkazem totožnosti a potvrzením vystaveným penzionem. Po splnění uvedených formalit recepce klienta ubytuje a poskytne mu další informace k pobytu či k jiným objednaným službám. Nástup je možný v den nástupu po 15:00.Ukončení ubytování je poslední den pobyto nejpozději do 10:00. Klient je zavazuje předat apartmán ve stavu jak ho přejímal.
+                    </p>
+                    <h4>VII. Stornovací podmínky</h4>
+                    <p>Klient má právo kdykoliv pobyt zrušit, tj. odstoupit od potvrzené objednávky/rezervačního požadavku pobytu za níže uvedených podmínek. Toto odstoupení ze strany klienta (dále jen storno) musí být provedeno písemnou formou a prokazatelně doručeno penzionu. Storno podmínky se vztahují na zrušení rezervace ubytovacích, stravovacích a ostatních služeb ze strany objednavatele. Při zrušení rezervace od data, kdy rezervace byla hostem zadána do 120 hodin před předpokládaným začátkem čerpání služeb (tzn. nejpozději do 14:00 hodin 5 dní před datem příjezdu) si penzion neúčtuje storno poplatek.Při zrušení rezervace 48 až 120 hodin před předpokládaným začátkem čerpání služeb dle potvrzené objednávky (tzn. nejpozději do 14:00 hodin 2 den před datem příjezdu) je penzion oprávněn si účtovat storno poplatek ve výši 50% z objednaných služeb dle potvrzené objednávky.Při zrušení rezervace 48 hodin a méně před předpokládaným začátkem čerpání služeb dle potvrzené objednávky (tzn. mezi 14:00 hodin předvčerejšího dne až začátkem rezervovaných služeb) je penzion oprávněn účtovat storno poplatek ve výši 100 % z objednaných služeb dle potvrzené objednávky.
+                    </p>
+                    <h4>VIII. Závěrečná ustanovení</h4>
+                    <p>Tyto obchodní a storno podmínky jsou nedílnou součástí objednávky služeb.Celková ceny za poskytnuté služby bude uhrazena na základě vystaveného účetního dokladu (příjmový doklad, faktura), dle tam uvedených podmínek, který bude klientovi doručen do 2 pracovních dní od provedení závazné objednávky.Platbu lze provést převodem na základě vydané faktury. Platbu nelze provést platební kartou.Všeobecné obchodní a storno podmínky vstupují v platnost dne 1. 3. 2016. Změny a doplňky těchto podmínek mohou být individuálně mezi penzionem a klientem upraveny výlučně písemnou formou.
+                    </p><br><br>
+                </blockquote>
+            </div>
+                <%= o.check_box :agress_licence ,  type: "checkbox" , :required => true%>
+                <%= o.label :agress_licence, 'Souhlasíte s obchodními podmínkami a provozním řádem' %>
         </div>
-        <div class="form-group">
-            <%#= o.label :agress_rules, 'Souhlasíte s provozním řádem' %><br>
-            <%#= o.check_box :agress_rules ,  type: "checkbox" , :required => true%>
-            <blockquote  id = "licence">
-            <h3>Provozní řád penzionu</h3>
-            <h4>Vážení hosté, žádáme Vás tímto o dodržování pokynů uvedených v provozním řádu penzionu a věříme, že se níže uvedená omezení setkají s Vaším pochopením.</h4>
-            <ol>
-                <li> Penzion může ubytovat pouze hosta, kterého řádně přihlásí. Host předloží provozovateli penzionu při příchodu platný doklad totožnosti a potvrzení rezervace.</li>
-                <li> Při počátku ubytování přebírá host pokoj bez závad, případné závady je povinen neprodleně oznámit provozovateli na recepci.</li>
-                <li> Pokud dojde k poškození pokoje či jiného zařízení penzionu z nedbalosti nebo úmyslně, je host povinen škodu nahradit.</li>
-                <li> Host nesmí bez souhlasu vedení penzionu přemisťovat vybavení, provádět jakékoliv úpravy a jakékoliv zásahy do elektrické sítě nebo jiné instalace.</li>
-                <li> Host je povinen udržovat pořádek a čistotu jak v penzionu, tak v přilehlém okolí.</li>
-                <li> Z bezpečnostních důvodů nesmí host ponechávat děti do 10i let věku bez dozoru dospělých na pokoji.</li>
-                <li> V pokoji může host přijímat návštěvy neubytovaných osob pouze se souhlasem recepce nebo majitele.</li>
-                <li> V době od 22 hod do 7 hod je host povinen dodržovat noční klid.</li>
-                <li> Host je povinen při ukončení ubytování opustit pokoj do 10.00 hod. </li>
-                <li>.  Požádá-li host o prodloužení ubytování, může mu být nabídnut jiný apartmán, než ten, ve kterém byl původně ubytován.</li>
-                <li> Host je povinen při odchodu z apartmánu zhasnout v pokoji a uzamknout vchodové dveře.</li>
-                <li> V prostorách penzionu je přísný zákaz kouření.</li>
-                <li> Na pokojích je přísný zákaz používání jiných spotřebičů než těch, jež jsou součásti apartmánů (zejména topných těles, rychlovarných konvic, vařičů), výjimkou jsou předměty osobní hygieny (holící strojky, fény, kulmy), nabíječky mobilních telefonů a notebooků.</li>
-                <li> Při nedodržení provozního řádu je obsluha oprávněna zrušit hostu ubytování bez jakékoliv finanční náhrady.</li>
-            </ul>
-            <p>Přejeme Vám příjemný a ničím nerušený pobyt v našem penzionu!</p>
-            </blockquote>
-        </div>  
+        <div class='col-sm-5'>
+            <div class="form-group">
+                <%#= o.label :agress_rules, 'Souhlasíte s provozním řádem' %><br>
+                <%#= o.check_box :agress_rules ,  type: "checkbox" , :required => true%>
+                <blockquote  id = "licence">
+                <h3>Provozní řád penzionu</h3>
+                <h4>Vážení hosté, žádáme Vás tímto o dodržování pokynů uvedených v provozním řádu penzionu a věříme, že se níže uvedená omezení setkají s Vaším pochopením.</h4>
+                <ol>
+                    <li> Penzion může ubytovat pouze hosta, kterého řádně přihlásí. Host předloží provozovateli penzionu při příchodu platný doklad totožnosti a potvrzení rezervace.</li>
+                    <li> Při počátku ubytování přebírá host pokoj bez závad, případné závady je povinen neprodleně oznámit provozovateli na recepci.</li>
+                    <li> Pokud dojde k poškození pokoje či jiného zařízení penzionu z nedbalosti nebo úmyslně, je host povinen škodu nahradit.</li>
+                    <li> Host nesmí bez souhlasu vedení penzionu přemisťovat vybavení, provádět jakékoliv úpravy a jakékoliv zásahy do elektrické sítě nebo jiné instalace.</li>
+                    <li> Host je povinen udržovat pořádek a čistotu jak v penzionu, tak v přilehlém okolí.</li>
+                    <li> Z bezpečnostních důvodů nesmí host ponechávat děti do 10i let věku bez dozoru dospělých na pokoji.</li>
+                    <li> V pokoji může host přijímat návštěvy neubytovaných osob pouze se souhlasem recepce nebo majitele.</li>
+                    <li> V době od 22 hod do 7 hod je host povinen dodržovat noční klid.</li>
+                    <li> Host je povinen při ukončení ubytování opustit pokoj do 10.00 hod. </li>
+                    <li>.  Požádá-li host o prodloužení ubytování, může mu být nabídnut jiný apartmán, než ten, ve kterém byl původně ubytován.</li>
+                    <li> Host je povinen při odchodu z apartmánu zhasnout v pokoji a uzamknout vchodové dveře.</li>
+                    <li> V prostorách penzionu je přísný zákaz kouření.</li>
+                    <li> Na pokojích je přísný zákaz používání jiných spotřebičů než těch, jež jsou součásti apartmánů (zejména topných těles, rychlovarných konvic, vařičů), výjimkou jsou předměty osobní hygieny (holící strojky, fény, kulmy), nabíječky mobilních telefonů a notebooků.</li>
+                    <li> Při nedodržení provozního řádu je obsluha oprávněna zrušit hostu ubytování bez jakékoliv finanční náhrady.</li>
+                </ol>
+                <p>Přejeme Vám příjemný a ničím nerušený pobyt v našem penzionu!</p>
+                </blockquote>
+            </div>  
+        </div>
         <div id="success"></div>
         <div class="form-group">
             <%= o.submit 'Vytvořit obědnávku' , class:"btn btn-primary"%>
