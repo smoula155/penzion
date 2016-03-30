@@ -21,7 +21,7 @@ class Order < ActiveRecord::Base
   STATUS_FINISHED = 3
   STATUS_REJECTED = 4
   
-  TYPE_STATUS = [['Nová obědnávka',STATUS_NEW],['Čeká na zaplacení', STATUS_ELABORATED],['Uzavřená', STATUS_FINISHED],['Zamítnutá', STATUS_REJECTED]]
+  TYPE_STATUS = [['Nová objednávka',STATUS_NEW],['Čeká na zaplacení', STATUS_ELABORATED],['Uzavřená', STATUS_FINISHED],['Zamítnutá', STATUS_REJECTED]]
 
 
   private

@@ -23,7 +23,7 @@ module OrderHelper
   def order_status(status)
     case status
       when Order::STATUS_NEW
-        'Nová obědnávka'
+        'Nová objednávka'
       when Order::STATUS_ELABORATED
         'Čeká na zaplacení'
       when Order::STATUS_FINISHED

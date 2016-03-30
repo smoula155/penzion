@@ -21,6 +21,7 @@
       <td><%= u.tel %></td>
       <td><%= u.address %></td>
       <td><%= je_admin(u) %></td>
+      <td><%= link_to 'smazat', u, method: :delete, data: { confirm: 'Jste si jistí?' } if current_user.admin? %></td>
     </tr>
   <% end %>
   </tbody>
