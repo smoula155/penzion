@@ -10,13 +10,14 @@
   </tr>
   </thead>
   <tbody>
-    <%@images.each do |o|  %>
+    <% @images.each do |o|  %>
     <tr>
       <td><%= o.id %></td>
     	<td><%= o.picture_file_name %></td>
     	<td><%= link_to "Zobraz obrázek" ,o.picture.url %></td>
       <td><%= o.room_id %></td>
+       <td><%= link_to 'smazat', o, method: :delete, data: { confirm: 'Jste si jistí?' } if current_user.admin? %></td>
     </tr>
-  <% end unless @images.nil? %> %>
+  <% end unless @images.nil? %>
   </tbody>
 </table>

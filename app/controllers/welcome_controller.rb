@@ -8,4 +8,10 @@ class WelcomeController < ApplicationController
   def pictures
   	@images = Image.all
   end
+
+  def price_list
+    @order = Order.new
+  end
+
+  
 end

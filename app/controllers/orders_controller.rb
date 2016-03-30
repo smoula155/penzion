@@ -40,6 +40,16 @@ class OrdersController < ApplicationController
     @user = @order.user
   end
 
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+
+    respond_to do |format|
+      format.html { redirect_to orders_path }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   	def find_user

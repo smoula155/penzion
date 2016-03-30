@@ -1,0 +1,82 @@
+<%= render :partial => "welcome/container_header",:locals => {:nazev => 'Ceník'} -%>
+  <table  class="table table-bordered">
+    <thead>
+      <tr>
+        <th> Typ Apartmánu </th>
+        <th> Cena za den při 1 - 2 dnů</th>
+        <th> Cena za den při 3 - 6 dnů</th>
+        <th> Cena za den při 6 a více dnů dny</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Apartmán 109</td>
+        <td>2200 Kč </td>
+        <td>1980 Kč </td>
+        <td>1760 Kč </td>
+      </tr>
+      <tr>
+        <td>Apartmán 110</td>
+        <td>1200 Kč</td>
+        <td>1080 Kč</td>
+        <td> 960 Kč</td>
+      </tr>
+      <tr>
+        <td>Apartmán 111</td>
+        <td>3200 Kč</td>
+        <td>2880 Kč</td>
+        <td>2560 Kč</td>
+      </tr>
+      <tr>
+        <td>Apartmán 112</td>
+        <td>2200 Kč </td>
+        <td>1980 Kč </td>
+        <td>1760 Kč </td>
+      </tr>
+      <tr>
+        <td>Spodní patro</td>
+        <td>3200 Kč</td>
+        <td>2880 Kč</td>
+        <td>2560 Kč</td>
+      </tr>
+      <tr>
+        <td>Celý penzion</td>
+        <td>8000 Kč</td>
+        <td>7200 Kč</td>
+        <td>6400 Kč</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="col-sm-6">
+  <%= form_for(@order) do |o| %>
+    <h4> Kalkulačka pro výpočet </h4>
+    <div class="form-group">
+      <%= o.label :from_date, 'Od data' %>
+      <%= o.text_field :from_date, class: 'datepicker form-control', type: "text" , :required => true %>
+    </div> 
+    <div class="form-group">
+      <%= o.label :to_date, 'Do data' %>
+      <%= o.text_field :to_date, class: 'datepicker form-control', type: "text" , :required => true %>
+    </div>   
+    <div class="form-group">
+      <%= o.label :room_id, 'Typ apartmánu' %>
+      <%= o.select :room_id, Room::TYPE_ROOMS,{}, {class: 'form-control'} %>
+    </div> 
+    <div class="form-group">
+      <%= o.hidden_field :price , class: 'order_price_new' %>
+      <%= o.label :price, 'Výsledná cena' %>
+      <input class="form-control" id="price_show" type="text" placeholder="Výsledná cena zde" disabled>
+    </div>
+    <% end %>
+  </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker({
+        format: 'yyyy/mm/dd',
+        startDate: 'd'
+    });
+  });
+</script>
+

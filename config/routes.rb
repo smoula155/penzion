@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     collection do
       get 'contact'
       get 'pictures'
+      get 'price_list'
     end
   end
 

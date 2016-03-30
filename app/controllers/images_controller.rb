@@ -23,6 +23,17 @@ class ImagesController < ApplicationController
     	end
   	end
 
+  def destroy
+    @image = Image.find(params[:id])
+    @image.destroy
+
+    respond_to do |format|
+      format.html { redirect_to images_path }
+      format.json { head :no_content }
+    end
+  end
+
+
 private
 	def images_params
 		 params.require(:image).permit(:picture, :room_id)

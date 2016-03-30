@@ -51,6 +51,7 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav navbar-right">
               <li><%= link_to 'Fotogalerie',   pictures_welcome_index_path %></li>
+              <li><%= link_to 'Ceník',   price_list_welcome_index_path %></li>    
               <li><%= link_to 'Kontakty',  contact_welcome_index_path %></li>
               <% if current_user.nil? %>  
                 <li><%= link_to "Přihlášení", new_user_session_path  %></li>
@@ -64,7 +65,7 @@
                   <b class="caret"></b> </a>
                   <ul class="dropdown-menu">
                     <li><%= link_to "Uživatelé", users_path %></li>    
-                    <li><%= link_to "Obráky", images_path %></li>    
+                    <li><%= link_to "Obrázky", images_path %></li>    
                   </ul>    
                 </li>
               <% end %>

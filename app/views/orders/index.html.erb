@@ -24,6 +24,7 @@
       <td><%= rooms_name(o.room.typ) %></td> 
       <td><%= o.price %></td> 
       <td><%= order_status(o.status) %></td> 
+      <td><%= link_to 'smazat', o, method: :delete, data: { confirm: 'Jste si jistí?' } if current_user.admin? %></td>
     </tr>
   <% end unless @orders.nil? %>
   </tbody>
