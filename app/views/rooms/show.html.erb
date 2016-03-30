@@ -49,12 +49,11 @@
 
             <% @images.each do |image| %>
                 <div class="col-sm-3 col-xs-6">
-                    <a href="#">
-                        <img class="img-responsive img-hover img-related" src="<%= "#{image.picture.url}" %>"  alt="">
-                    </a>
+                    <a href="<%= "#{image.picture.url}" %>"  data-toggle="lightbox"><img class="img-responsive img-hover img-related" src="<%= "#{image.picture.url}" %>"  alt=""></a>
                 </div>
            <% end unless @images.nil?%>     
         </div>   
-  
+
+
 
            

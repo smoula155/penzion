@@ -1,8 +1,10 @@
 <%= render :partial => "welcome/container_header",:locals => {:nazev => 'Fotogalerie'} -%>
 <div class="row">
 <% @images.each do |image| %>
-   <div class="col-md-3 img-portfolio">
-        <img class="img-responsive img-hover" src="<%= "#{image.picture.url}" %>" alt="">
+  <div class="col-md-3 img-portfolio">
+    <div class="col-sm-3 col-xs-6">
+      <a href="<%= "#{image.picture.url}" %>"  data-toggle="lightbox"><img class="img-responsive img-hover img-related" src="<%= "#{image.picture.url}" %>"  alt=""></a>
     </div>
+  </div>
 <% end %>
 </div>            

@@ -109,6 +109,7 @@ GEM
       less (~> 2.6.0)
       sprockets (> 2, < 4)
       tilt
+    lightbox-bootstrap-rails (3.3.0.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -233,6 +234,7 @@ DEPENDENCIES
   devise-bootstrap-views
   jbuilder (~> 2.0)
   jquery-rails
+  lightbox-bootstrap-rails
   paperclip
   pg
   pry-rails

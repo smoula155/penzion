@@ -33,6 +33,8 @@ class ImagesController < ApplicationController
     end
   end
 
+  def show
+  end
 
 private
 	def images_params
