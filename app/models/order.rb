@@ -23,7 +23,7 @@ class Order < ActiveRecord::Base
 
   private
   	def val_price
-  		unless price.present? && price > 0
+  		if !price.present? || price < 0
       		errors.add(:price, "Zadaná špatná výsledná cena")
     	end
   	end
