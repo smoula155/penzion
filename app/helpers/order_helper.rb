@@ -24,6 +24,12 @@ module OrderHelper
     case status
       when Order::STATUS_NEW
         'Nová obědnávka'
+      when Order::STATUS_ELABORATED
+        'Čeká na zaplacení'
+      when Order::STATUS_FINISHED
+        'Uzavřená'
+      when Order::STATUS_REJECTED
+        'Zamítnutá'
       else
         'nedef'
     end 

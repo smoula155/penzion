@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @user.update_attributes(user_params)
     @order.user_id = @user.id
     @order.status  = Order::STATUS_NEW
     respond_to do |format|
@@ -40,6 +41,23 @@ class OrdersController < ApplicationController
     @user = @order.user
   end
 
+   def update
+   @order = Order.find params[:id]
+    respond_to do |format|
+      if @order.update_attributes(order_params_update)
+        format.js {} 
+        format.html { redirect_to orders_path, notice: 'Obědnávka byla úspěšně upravena' }
+        format.json { head :no_content }
+      else
+        flash[:danger] = @order.errors.messages.map{|a| a.last}.join
+        format.html { redirect_to orders_path}
+        format.js{}
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
+
+  end
+
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
@@ -53,20 +71,19 @@ class OrdersController < ApplicationController
   private
 
   	def find_user
-  		@user = User.new
+  		@user = User.new()
   		@user = current_user unless current_user.nil?
   	end
 
-    def find_exist_user
-      if current_user.nil?
-        @user = User.new
-      else
-        @user = User.find current_user.id 
-      end  
-    end
-
     def order_params
       params.require(:order).permit(:from_date, :to_date, :room_id, :price)
+    end
+    def order_params_update
+      params.require(:order).permit(:from_date, :to_date, :room_id, :price, :status)
+    end
+
+    def user_params
+      params.require(:user).permit(:email,:jmeno,:prijmeni,:address,:tel)
     end
 
     def filtr_by_rooms

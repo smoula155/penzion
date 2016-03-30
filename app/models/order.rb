@@ -17,8 +17,11 @@ class Order < ActiveRecord::Base
   scope :form_all_rooms, ->{where 'room_id IN (?)', Room::ONE_ROOMS}
 
   STATUS_NEW = 1
+  STATUS_ELABORATED = 2
+  STATUS_FINISHED = 3
+  STATUS_REJECTED = 4
   
-  TYPE_STATUS = [['Nová obědnávka',STATUS_NEW]]
+  TYPE_STATUS = [['Nová obědnávka',STATUS_NEW],['Čeká na zaplacení', STATUS_ELABORATED],['Uzavřená', STATUS_FINISHED],['Zamítnutá', STATUS_REJECTED]]
 
 
   private
