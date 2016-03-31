@@ -2,7 +2,6 @@
 <div class="row">
 <% @images.each do |image| %>
   <div class="col-md-3 img-portfolio">
-
       <a href="<%= "#{image.picture.url}" %>"  data-toggle="lightbox"><img class="img-responsive img-hover img-related" src="<%= "#{image.picture.url}" %>"  alt=""></a>
     </div>
 <% end %>

@@ -15,7 +15,7 @@
       <td><%= o.id %></td>
     	<td><%= o.picture_file_name %></td>
     	<td><%= link_to "Zobraz obrázek" ,o.picture.url %></td>
-      <td><%= o.room_id %></td>
+      <td><%= rooms_name o.room_id %></td>
        <td><%= link_to 'smazat', o, method: :delete, data: { confirm: 'Jste si jistí?' } if current_user.admin? %></td>
     </tr>
   <% end unless @images.nil? %>
