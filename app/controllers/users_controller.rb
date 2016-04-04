@@ -5,8 +5,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    UserMailer.welcome_email(current_user).deliver_later
-
   end
 
   def edit

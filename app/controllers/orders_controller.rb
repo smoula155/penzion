@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
     @order.status  = Order::STATUS_NEW
     respond_to do |format|
       if @order.save
+        UserMailer.new_order(@user, @order).deliver_later
         flash[:success] = 'Objednávka úspěšně vytvořena.'
         format.html { redirect_to orders_path }
         format.json { render :show, status: :created, location: @message }
