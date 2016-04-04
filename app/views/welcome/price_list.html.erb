@@ -4,8 +4,8 @@
       <tr>
         <th> Typ Apartmánu </th>
         <th> Cena za den při 1 - 2 dnů</th>
-        <th> Cena za den při 3 - 6 dnů</th>
-        <th> Cena za den při 6 a více dnů dny</th>
+        <th> Cena za den při 3 - 5 dní</th>
+        <th> Cena za den při 6 a více dnů</th>
       </tr>
     </thead>
     <tbody>
@@ -54,15 +54,15 @@
     <div class="form-group">
       <%= o.label :from_date, 'Od data' %>
       <%= o.text_field :from_date, class: 'datepicker form-control', type: "text" , :required => true %>
-    </div> 
+    </div>
     <div class="form-group">
       <%= o.label :to_date, 'Do data' %>
       <%= o.text_field :to_date, class: 'datepicker form-control', type: "text" , :required => true %>
-    </div>   
+    </div>
     <div class="form-group">
       <%= o.label :room_id, 'Typ apartmánu' %>
       <%= o.select :room_id, Room::TYPE_ROOMS,{}, {class: 'form-control'} %>
-    </div> 
+    </div>
     <div class="form-group">
       <%= o.hidden_field :price , class: 'order_price_new' %>
       <%= o.label :price, 'Výsledná cena' %>
@@ -79,4 +79,3 @@
     });
   });
 </script>
-

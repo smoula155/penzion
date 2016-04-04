@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
 		@image = Image.new(images_params)
 		respond_to do |format|
       		if @image.save
-		        flash[:success] = 'Obědnávka úspěšně vytvořena.'
+		        flash[:success] = 'Objednávka úspěšně vytvořena.'
 		        format.html { redirect_to images_path }
 		        format.json { render :show, status: :created, location: @message }
       		else

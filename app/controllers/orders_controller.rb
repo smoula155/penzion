@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  
+
   before_action :authenticate_user!, only: [:index, :new]
   before_filter :find_user, only: [:new, :create]
   before_filter :filtr_by_rooms, only: :create
@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     @order.status  = Order::STATUS_NEW
     respond_to do |format|
       if @order.save
-        flash[:success] = 'Obědnávka úspěšně vytvořena.'
+        flash[:success] = 'Objednávka úspěšně vytvořena.'
         format.html { redirect_to orders_path }
         format.json { render :show, status: :created, location: @message }
       else
@@ -27,12 +27,12 @@ class OrdersController < ApplicationController
       end
     end
   end
-  
+
   def index
     if current_user.admin?
       @orders = Order.all
     else
-      @orders = Order.for_user(current_user.id) 
+      @orders = Order.for_user(current_user.id)
     end
   end
 
@@ -45,8 +45,8 @@ class OrdersController < ApplicationController
    @order = Order.find params[:id]
     respond_to do |format|
       if @order.update_attributes(order_params_update)
-        format.js {} 
-        format.html { redirect_to orders_path, notice: 'Obědnávka byla úspěšně upravena' }
+        format.js {}
+        format.html { redirect_to orders_path, notice: 'Objednávka byla úspěšně upravena' }
         format.json { head :no_content }
       else
         flash[:danger] = @order.errors.messages.map{|a| a.last}.join
@@ -94,15 +94,15 @@ class OrdersController < ApplicationController
         when Room::ROOMS109110
           orders = Order.from_date(order_params[:from_date]).to_date(order_params[:from_date]).form_all_bottom_rooms
         when Room::ROOMSall
-          orders = Order.from_date(order_params[:from_date]).to_date(order_params[:from_date]).form_all_rooms  
-        else 
+          orders = Order.from_date(order_params[:from_date]).to_date(order_params[:from_date]).form_all_rooms
+        else
           flash[:danger] = 'Neočekávaná chyba'
           return redirect_to :back
       end
-     
+
       unless orders.blank?
         flash[:warning] = 'V zadaném rozmezí datumů je již tento apartmán rezervován vyberte jinný rozsah!'
         return redirect_to :back
-      end   
-    end 
+      end
+    end
 end

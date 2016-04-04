@@ -30,7 +30,7 @@
             </div>
             <div class="col-md-5">
                 <p>
-                    <%= link_to 'Vytvořit obědnávku', new_order_path(), class:"btn btn-primary", style:"float: left" %>
+                    <%= link_to 'Vytvořit objednávku', new_order_path(), class:"btn btn-primary", style:"float: left" %>
                     <br> <br>
                     <%= description_room(@room.typ)%>
                 </p>
@@ -51,9 +51,5 @@
                 <div class="col-sm-3 col-xs-6">
                     <a href="<%= "#{image.picture.url}" %>"  data-toggle="lightbox"><img class="img-responsive img-hover img-related" src="<%= "#{image.picture.url}" %>"  alt=""></a>
                 </div>
-           <% end unless @images.nil?%>     
-        </div>   
-
-
-
-           
+           <% end unless @images.nil?%>
+        </div>

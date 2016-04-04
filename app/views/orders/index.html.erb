@@ -3,7 +3,7 @@
 <table  class="table">
 <thead>
   <tr>
-    <th> Číslo obědnávky </th>
+    <th> Číslo objednávky </th>
     <th> Od data </th>
     <th> Do data </th>
     <th> Typ pokoje </th>
@@ -21,12 +21,11 @@
       <% end %>
       <td><%= o.from_date %></td>
       <td><%= o.to_date%></td>
-      <td><%= rooms_name(o.room.typ) %></td> 
-      <td><%= o.price %></td> 
-      <td><%= order_status(o.status) %></td> 
+      <td><%= rooms_name(o.room.typ) %></td>
+      <td><%= o.price %></td>
+      <td><%= order_status(o.status) %></td>
       <td><%= link_to 'smazat', o, method: :delete, data: { confirm: 'Jste si jistí?' } if current_user.admin? %></td>
     </tr>
   <% end unless @orders.nil? %>
   </tbody>
 </table>
-
