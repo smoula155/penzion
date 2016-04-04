@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
   before_filter :find_user, only: [:edit,:update]
-  
+
   load_and_authorize_resource
-  
-  def index 
+
+  def index
     @users = User.all
-  end 
+    UserMailer.welcome_email(current_user).deliver_later
+
+  end
 
   def edit
 
@@ -16,8 +18,8 @@ class UsersController < ApplicationController
     if @user.update user
       redirect_to users_path, notice: "Uživatel upraven"
     else
-      render :edit  
-    end  
+      render :edit
+    end
   end
 
   def destroy
