@@ -76,5 +76,22 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-   
+  #config.action_mailer.delivery_method = :sendmail
+  #config.action_mailer.default_url_options = { host: "penzionwhitezralok.cz", port: 25}
+  config.action_mailer.raise_delivery_errors = true
+
+  # set delivery method to :smtp, :sendmail or :test
+  config.action_mailer.delivery_method = :smtp
+
+  # these options are only needed if you choose smtp delivery
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.penzionwhitezralok.cz',
+    :port           => 25,
+    :domain         => 'www.penzionwhitezralok.cz',
+    :authentication => :login,
+    :user_name      => 'www',
+    :password       => 'secret'
+  }
+
+
 end
