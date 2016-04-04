@@ -84,14 +84,14 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   # these options are only needed if you choose smtp delivery
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address        => 'smtp.penzionwhitezralok.cz',
-    :port           => 25,
-    :domain         => 'www.penzionwhitezralok.cz',
-    :authentication => :login,
-    :user_name      => 'www',
-    :password       => 'secret'
+    :address => "localhost",
+    :port => 25,
+    :domain => "penzionwhitezralok.cz",
   }
+
+
 
 
 end
