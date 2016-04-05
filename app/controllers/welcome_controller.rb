@@ -13,5 +13,9 @@ class WelcomeController < ApplicationController
     @order = Order.new
   end
 
+  def send_mail
+    
+  end
+
 
 end

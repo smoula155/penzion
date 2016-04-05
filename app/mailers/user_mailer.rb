@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
   default from: 'notifications@penzionwhitezralok.cz'
-  DEFAUL_ADRESS = 'smoula155@gmail.com'
+  DEFAUL_ADRESS = 'whitezralok@atlas.cz'
   #whitezralok@atlas.cz
 
    def welcome_email(user)
