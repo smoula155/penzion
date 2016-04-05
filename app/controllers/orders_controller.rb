@@ -15,9 +15,10 @@ class OrdersController < ApplicationController
     @user.update_attributes(user_params)
     @order.user_id = @user.id
     @order.status  = Order::STATUS_NEW
+    @order.var_symbol = @order.generate_var_symbol
     respond_to do |format|
       if @order.save
-        UserMailer.new_order(@user, @order).deliver_later
+        UserMailer.new_order(@order).deliver_later
         flash[:success] = 'Objednávka úspěšně vytvořena.'
         format.html { redirect_to orders_path }
         format.json { render :show, status: :created, location: @message }
@@ -44,8 +45,10 @@ class OrdersController < ApplicationController
 
    def update
    @order = Order.find params[:id]
+   order_status_first = @order.status
     respond_to do |format|
       if @order.update_attributes(order_params_update)
+        change_order_status(order_status_first, @order.status)
         format.js {}
         format.html { redirect_to orders_path, notice: 'Objednávka byla úspěšně upravena' }
         format.json { head :no_content }
@@ -70,6 +73,15 @@ class OrdersController < ApplicationController
   end
 
   private
+
+    def change_order_status(order_status_first,order_status_second)
+      if order_status_first == Order::STATUS_NEW && order_status_second == Order::STATUS_ELABORATED
+        UserMailer.elaorated_order(@order).deliver_later
+      end
+      if order_status_first == Order::STATUS_ELABORATED && order_status_second == Order::STATUS_FINISHED
+        UserMailer.finished_order(@order).deliver_later
+      end
+    end
 
   	def find_user
   		@user = User.new()

@@ -15,14 +15,28 @@ class Order < ActiveRecord::Base
   scope :form_room, ->(room_id){where room_id: room_id}
   scope :form_all_bottom_rooms, ->{where 'room_id = 1 OR room_id = 2'}
   scope :form_all_rooms, ->{where 'room_id IN (?)', Room::ONE_ROOMS}
+  scope :this_year, ->{where 'created_at < (?) AND created_at > (?)',Date.today + 365,  Date.today - 365}
+
 
   STATUS_NEW = 1
   STATUS_ELABORATED = 2
   STATUS_FINISHED = 3
   STATUS_REJECTED = 4
-  
+
   TYPE_STATUS = [['Nová objednávka',STATUS_NEW],['Čeká na zaplacení', STATUS_ELABORATED],['Uzavřená', STATUS_FINISHED],['Zamítnutá', STATUS_REJECTED]]
 
+  def generate_var_symbol
+    count =  Order.this_year.count
+    if count < 10
+      Date.today.year.to_s  + '000'+ count.to_s
+    elsif count < 100
+      Date.today.year.to_s  + '00' + count.to_s
+    elsif count < 1000
+      Date.today.year.to_s  + '0' + count.to_s
+    else
+      Date.today.year.to_s  + count.to_s
+    end
+  end
 
   private
   	def val_price
