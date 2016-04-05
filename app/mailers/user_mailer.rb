@@ -25,4 +25,12 @@ class UserMailer < ApplicationMailer
      @user = @order.user
      mail(to:  @user.email, subject: 'Potvrzení o zaplacení objednávky')
    end
+
+   def email_from_contact(email,name,phone,text)
+     @name = name
+     @email = email
+     @phone = phone
+     @text = text
+        mail(to: DEFAUL_ADRESS, subject: 'Nová zpráva z webu penzionu')
+   end
 end

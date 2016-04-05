@@ -14,7 +14,9 @@ class WelcomeController < ApplicationController
   end
 
   def send_mail
-    
+    UserMailer.email_from_contact(params[:email],params[:name],params[:phone],params[:text]).deliver_later
+    flash[:success] = 'Email byl odeslán.'
+    render :index
   end
 
 

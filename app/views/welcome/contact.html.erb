@@ -15,11 +15,11 @@
                 <p>
                     Dolní moravice<br> č.61<br>79501
                 </p>
-                <p><i class="fa fa-phone"></i> 
+                <p><i class="fa fa-phone"></i>
                     <abbr title="Phone">Tel:</abbr>: +420 777 344 348</p>
-                <p><i class="fa fa-phone"></i> 
+                <p><i class="fa fa-phone"></i>
                     <abbr title="Phone">Tel:</abbr>: +420 604 410 966</p>
-                <p><i class="fa fa-envelope-o"></i> 
+                <p><i class="fa fa-envelope-o"></i>
                     <abbr title="Email">Email:</abbr>: <a href="mailto:whitezralok@atlas.cz">whitezralok@atlas.cz</a>
                 </p>
             </div>
@@ -31,36 +31,36 @@
         <div class="row">
             <div class="col-md-8">
                 <h3>Pošlete nám zprávu</h3>
-                <form name="sentMessage" id="contactForm" novalidate>
+                <%= form_tag send_mail_welcome_index_path, method: :post do %>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Celé jméno</label>
-                            <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                            <%= text_field_tag :name,nil, {class:'form-control', type: 'text', :required => true }%>
                             <p class="help-block"></p>
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Telefoní číslo</label>
-                            <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+                            <%= text_field_tag :phone,nil, {class:'form-control', type: 'tel', :required => true }%>
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Vaše emailová adresa:</label>
-                            <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                            <%= text_field_tag :email,nil, {class:'form-control', type: 'email', :required => true }%>
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Zpráva:</label>
-                            <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                            <%= text_area_tag :text, nil, {rows:"10",cols:"100", class:"form-control", :required => true, maxlength:"999", style:"resize:none"} %>
                         </div>
                     </div>
                     <div id="success"></div>
                     <!-- For success/fail messages -->
                     <button type="submit" class="btn btn-primary"> Odeslat zprávu </button>
-                </form>
+                <% end %>
             </div>
 
         </div>
@@ -76,4 +76,3 @@
                 </div>
             </div>
         </footer>
-
