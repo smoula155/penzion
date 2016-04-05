@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
 
 	def show
 		@images = @room.images
+		@orders = Order.select('from_date')
 	end
 
 	private

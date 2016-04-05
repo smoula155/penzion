@@ -38,6 +38,10 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def start_time
+    self.from_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+  end
+
   private
   	def val_price
   		if !price.present? || price < 0
