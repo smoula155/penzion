@@ -14,7 +14,7 @@
       tel: +420 604 410 966<br>
       email:  whitezralok@atlas.cz</p>
       <p> číslo objednávky: <%= @order.id %> </p>
-      <p> ubytovní od <%= @order.from_date %>  do <%= @order.to_date %> v <%= rooms.id %></p>
+      <p> ubytovní od <%= @order.from_date %>  do <%= @order.to_date %> v  <%= @order.room.name_room %></p>
       <p> S přáním pěkného pobytu tým WhiteZralok </p>
   </body>
 </html>

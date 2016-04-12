@@ -23,6 +23,7 @@ class UserMailer < ApplicationMailer
    def finished_order(order)
      @order = order
      @user = @order.user
+     attachments['obchodni_podminky.pdf'] = File.read('public/obchodni_podminky.pdf')
      mail(to:  @user.email, subject: 'Potvrzení zaplacení objednávky')
    end
 
