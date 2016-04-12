@@ -5,11 +5,11 @@ Price =
   price_for_day: (type_rooms) ->
     switch type_rooms
       when "1" then 2700.0
-			when "2" then 1200
-			when "3" then 3200
-			when "4" then 2200
-			when "5" then 3600
-			when "6" then 8500
+      when "2" then 1200
+      when "3" then 3200
+      when "4" then 2200
+      when "5" then 3600
+      when "6" then 8500
   price_for_time: (count,type_rooms) ->
     number = @price_for_day(type_rooms) * count
     if count > 5
