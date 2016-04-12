@@ -5,6 +5,9 @@ class WelcomeController < ApplicationController
   def contact
   end
 
+  def conditions
+  end
+
   def pictures
   	@images = Image.all
   end

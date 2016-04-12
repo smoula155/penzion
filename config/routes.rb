@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get 'contact'
       get 'pictures'
       get 'price_list'
+      get 'conditions'
       post 'send_mail'
     end
   end
