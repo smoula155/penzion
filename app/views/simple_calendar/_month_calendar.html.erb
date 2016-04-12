@@ -1,6 +1,6 @@
 <div class="simple-calendar">
   <%= link_to "předchozí", url_for(params.merge(start_date: date_range.first - 1.day)), class: 'mover' %>
-  <%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %>
+  <%= cz_month(start_date.month) %> <%= start_date.year %>
   <%= link_to "další", url_for(params.merge(start_date: date_range.last + 1.day)) , class: '' %>
 
   <table class="table calendar">
