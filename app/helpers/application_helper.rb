@@ -18,7 +18,7 @@ module ApplicationHelper
 	def filtr_by_rooms(room)
 		case room.typ
 			when *Room::BOTTOM_ROOMS
-		 	orders = Order.form_room(room.id)
+		 	orders = Order.form_bottom(room.id)
 			when *Room::ONE_ROOMS
 			 orders = Order.form_room(room.id)
 			when Room::ROOMS109110

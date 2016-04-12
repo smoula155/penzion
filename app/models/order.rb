@@ -15,7 +15,6 @@ class Order < ActiveRecord::Base
   scope :form_room, ->(room_id){where 'room_id = (?) OR room_id = 6',room_id}
   scope :form_bottom, ->(room_id){where 'room_id = (?) OR room_id = 5',room_id}
   scope :form_all_bottom_rooms, ->{where 'room_id = 1 OR room_id = 2 OR room_id = 6'}
-  scope :form_all_rooms, ->{where 'room_id IN (?)', Room::ONE_ROOMS}
   scope :this_year, ->{where 'created_at < (?) AND created_at > (?)',Date.today + 365,  Date.today - 365}
 
 

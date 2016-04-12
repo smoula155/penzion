@@ -103,9 +103,9 @@ class OrdersController < ApplicationController
       room = Room.find_by_id order_params[:room_id]
       case room.typ
         when *Room::BOTTOM_ROOMS
-         orders = Order.from_date(order_params[:from_date]).to_date(order_params[:from_date]).form_room(order_params[:room_id])
-        when *Room::ONE_ROOMS
          orders = Order.from_date(order_params[:from_date]).to_date(order_params[:from_date]).form_bottom(order_params[:room_id])
+        when *Room::ONE_ROOMS
+         orders = Order.from_date(order_params[:from_date]).to_date(order_params[:from_date]).form_room(order_params[:room_id])
         when Room::ROOMS109110
           orders = Order.from_date(order_params[:from_date]).to_date(order_params[:from_date]).form_all_bottom_rooms
         when Room::ROOMSall
