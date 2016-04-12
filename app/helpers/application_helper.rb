@@ -3,7 +3,7 @@ module ApplicationHelper
 
 
 	def td_classes_for(day,room,start_moth)
-		  unless filtr_by_rooms(room).where('from_date = (?)', day).blank?
+		  unless filtr_by_rooms(room).where('from_date <= (?)',day).where('to_date > (?)',day).blank?
 				return 'has-events'
 			end
 			if day.to_date.month < start_moth || day.to_date.month > start_moth
@@ -17,12 +17,14 @@ module ApplicationHelper
 
 	def filtr_by_rooms(room)
 		case room.typ
+			when *Room::BOTTOM_ROOMS
+		 	orders = Order.form_room(room.id)
 			when *Room::ONE_ROOMS
 			 orders = Order.form_room(room.id)
 			when Room::ROOMS109110
 				orders = Order.form_all_bottom_rooms
 			when Room::ROOMSall
-				orders = Order.form_all_rooms
+				orders = Order.all
 			else
 				flash[:danger] = 'Neočekávaná chyba'
 				return redirect_to :back

@@ -12,7 +12,7 @@
     <p>Děkujeme tým penzionu WhiteZralok.</p><br>
     <h5> Souhrn objednávky </h5>
     <p> číslo obj <%= @order.id %> </p>
-    <p> ubytovní od <%= @order.from_date %>  do <%= @order.to_date %> v <%= rooms.id %></p>
+    <p> ubytovní od <%= @order.from_date %>  do <%= @order.to_date %> v <%= @order.room.id %></p>
     <p> částka platby <%= @order.price %> Kč</p>
     <p> číslo účtu 378616093/0300 </p>
     <p> VS <%= @order.var_symbol %></p>

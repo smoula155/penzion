@@ -102,12 +102,14 @@ class OrdersController < ApplicationController
     def filtr_by_rooms
       room = Room.find_by_id order_params[:room_id]
       case room.typ
-        when *Room::ONE_ROOMS
+        when *Room::BOTTOM_ROOMS
          orders = Order.from_date(order_params[:from_date]).to_date(order_params[:from_date]).form_room(order_params[:room_id])
+        when *Room::ONE_ROOMS
+         orders = Order.from_date(order_params[:from_date]).to_date(order_params[:from_date]).form_bottom(order_params[:room_id])
         when Room::ROOMS109110
           orders = Order.from_date(order_params[:from_date]).to_date(order_params[:from_date]).form_all_bottom_rooms
         when Room::ROOMSall
-          orders = Order.from_date(order_params[:from_date]).to_date(order_params[:from_date]).form_all_rooms
+          orders = Order.from_date(order_params[:from_date]).to_date(order_params[:from_date])
         else
           flash[:danger] = 'Neočekávaná chyba'
           return redirect_to :back
