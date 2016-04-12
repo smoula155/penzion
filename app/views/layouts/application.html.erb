@@ -56,7 +56,6 @@
               <% if current_user.nil? %>
                 <li><%= link_to "Přihlášení", new_user_session_path  %></li>
                 <li><%= link_to "Registrace", new_user_registration_path%></li>
-                <li><%= link_to "Obchodní podmínky", nil%></li>
               <% else %>
                 <li><%= link_to "Objednávky", orders_path(user: current_user)%> </li>
                 <li><%= link_to current_user.email, edit_user_path(current_user) %></li>
@@ -72,6 +71,7 @@
               <% end %>
                 <li><%= link_to "Odhlášení",  destroy_user_session_path, method: :delete %> </li>
               <% end %>
+              <li><%= link_to "Obchodní podmínky", nil%></li>
           </ul>
         </div>
       </div>

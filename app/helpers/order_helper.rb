@@ -4,17 +4,17 @@ module OrderHelper
 		case type_room
 			when Room::ROOMS109
 				'Apartmán 109'
-  			when Room::ROOMS110 
+  			when Room::ROOMS110
   				'Apartmán 110'
-  			when Room::ROOMS111 
+  			when Room::ROOMS111
   				'Apartmán 111'
-  			when Room::ROOMS112 
+  			when Room::ROOMS112
   				'Apartmán 112'
-  			when Room::ROOMS109110 
+  			when Room::ROOMS109110
   				'Spodní patro'
-  			when Room::ROOMSall 
+  			when Room::ROOMSall
   				'Celý penzion'
-  			else 
+  			else
   				'nedefinovaný'
   		end
 	end
@@ -30,8 +30,10 @@ module OrderHelper
         'Uzavřená'
       when Order::STATUS_REJECTED
         'Zamítnutá'
+      when Order::STATUS_STORNO
+        'Stornovaná'
       else
         'nedef'
-    end 
+    end
   end
 end

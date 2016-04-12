@@ -40,8 +40,8 @@ en:
       success: "Successfully authenticated from %{kind} account."
     passwords:
       new:
-        forgot_your_password: "Forgot your password?"
-        send_me_reset_password_instructions: "Send me reset password instructions"
+        forgot_your_password: "Zapomenuté heslo"
+        send_me_reset_password_instructions: "Odeslat"
       edit:
         change_your_password: "Change your password"
         new_password: "New password"
@@ -80,7 +80,7 @@ en:
       links:
         didn_t_receive_confirmation_instructions: "Didn't receive confirmation instructions?"
         didn_t_receive_unlock_instructions: "Didn't receive unlock instructions?"
-        forgot_your_password: "Forgot your password?"
+        forgot_your_password: "Zapomenuté heslo"
         sign_in: "Přihlášení"
         sign_in_with_provider: "Sign in with %{provider}"
         sign_up: "Odhlášení"

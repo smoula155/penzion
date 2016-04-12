@@ -5,39 +5,39 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4> Úprava uživatele </h4>
-        </div>    
+        </div>
         <div class="panel-body">
           <div class="form-group">
             <%= f.label :email %>
             <%= f.text_field :email, class:'form-control' %>
-          </div>   
+          </div>
           <div class="form-group">
-             <%= f.label :jmeno %>
+             <%= f.label :jmeno, 'Jméno' %>
              <%= f.text_field :jmeno, class:'form-control' %>
-          </div>   
+          </div>
           <div class="form-group">
-              <%= f.label :prijmeni%>
+              <%= f.label :prijmeni, 'Přijmení'%>
               <%= f.text_field :prijmeni, class:'form-control'%>
-          </div>   
+          </div>
           <div class="form-group">
-              <%= f.label :tel%>
+              <%= f.label :tel , 'Telefon'%>
               <%= f.text_field :tel, class:'form-control'%>
-          </div>   
+          </div>
           <div class="form-group">
-              <%= f.label :address%>
+              <%= f.label :address, 'Adresa'%>
               <%= f.text_field :address, class:'form-control'%>
-          </div>   
+          </div>
           <% if current_user.admin? %>
           <div class="form-group">
               <%= f.label :admin %>
               <%= f.check_box :admin, class:'form-control' %>
-          </div>  
-          <% end %> 
+          </div>
+          <% end %>
           <div >
-              <%= f.submit %>
-          </div>   
+              <%= f.submit 'Uložit',  class: "btn btn-primary"  %>
+          </div>
         </div>
       </div>
     </div>
-  <% end %>    
+  <% end %>
 </div>

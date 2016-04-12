@@ -4,17 +4,17 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h4>Dobrý den,<%= "#{@user.jmeno} #{@user.prijmeni}" %> </h4>
+    <h4>Dobrý den <%= "#{@user.jmeno} #{@user.prijmeni}" %> </h4>
     <p>potvrzujeme přijetí Vaši objednávky číslo <%=@order.id %> ze dne <%= @order.created_at %>.
-    <p>Níže zasíláme souhrn objednávky a platební údaje. Prosíme o úhradu do 2 dnů na účet číslo ............. vedený u ČSOB,
-      pobočka Olomouc Horní náměstí. Po přijetí platby Vám bude doručen potvrzovací email o zaplacení a
+    <p>Níže zasíláme souhrn objednávky a platební údaje. Prosíme o úhradu do 2 pracovních dnů na účet číslo 378616093/0300 vedený u ČSOB,
+      pobočka Olomouc - Horní náměstí. Po přijetí platby Vám bude doručen potvrzovací email o zaplacení a
       uskutečnění závazné objednávky.</p>
-    <p>Děkujeme tým penzionu WZ.</p><br>
+    <p>Děkujeme tým penzionu WhiteZralok.</p><br>
     <h5> Souhrn objednávky </h5>
     <p> číslo obj <%= @order.id %> </p>
-    <p> datum od <%= @order.from_date %> datum do <%= @order.to_date %> </p>
-    <p> částka platby <%= @order.price %></p>
-    <p> číslo účtu .... </p>
+    <p> ubytovní od <%= @order.from_date %>  do <%= @order.to_date %> v <%= rooms.id %></p>
+    <p> částka platby <%= @order.price %> Kč</p>
+    <p> číslo účtu 378616093/0300 </p>
     <p> VS <%= @order.var_symbol %></p>
   </body>
 </html>

@@ -12,7 +12,7 @@ class UserMailer < ApplicationMailer
    def elaorated_order(order)
      @order = order
      @user = @order.user
-     mail(to: @user.email, subject: 'Potvrzení o přijetí objednávky')
+     mail(to: @user.email, subject: 'Potvrzení přijetí objednávky')
    end
 
    def new_order(order)
@@ -23,7 +23,7 @@ class UserMailer < ApplicationMailer
    def finished_order(order)
      @order = order
      @user = @order.user
-     mail(to:  @user.email, subject: 'Potvrzení o zaplacení objednávky')
+     mail(to:  @user.email, subject: 'Potvrzení zaplacení objednávky')
    end
 
    def email_from_contact(email,name,phone,text)

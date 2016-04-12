@@ -4,17 +4,17 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h4>Dobrý den,<%= "#{@user.jmeno} #{@user.prijmeni}" %> </h4>
+    <h4>Dobrý den, <%= "#{@user.jmeno} #{@user.prijmeni}" %> </h4>
     <p>potvrzujeme přijetí platby za objednávku číslo <%=@order.id %> ze dne <%= @order.created_at %>.
-    <p>Vaše objednávka je tímto plně dokončena a těšíme se na Vás v našem penzionu WZ. Níže zasíláme rekapitulaci termínu.
-      Ubytování možno první den (<%= @order.from_date %>) od ... h
+    <p>Vaše objednávka je tímto plně dokončena a těšíme se na Vás v našem penzionu WhiteZralok. Níže zasíláme rekapitulaci termínu.
+      Ubytování možno první den (<%= @order.from_date %>) od 14 h
       Ubytování probíhá na recepci hotelu Avalanche. Blížší informace naleznete v provozním řádu a obchodních podmínkách,
       které Vám zaíláme v příloze nebo nás můžete kontaktovat na: <br>
       tel: +420 777 344 348<br>
       tel: +420 604 410 966<br>
       email:  whitezralok@atlas.cz</p>
       <p> číslo objednávky: <%= @order.id %> </p>
-      <p> datum od <%= @order.from_date %> datum do <%= @order.to_date %> </p>
-      <p> S přáním pěkného pobytu tým WZ </p>
+      <p> ubytovní od <%= @order.from_date %>  do <%= @order.to_date %> v <%= rooms.id %></p>
+      <p> S přáním pěkného pobytu tým WhiteZralok </p>
   </body>
 </html>

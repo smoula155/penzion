@@ -9,6 +9,7 @@
     <th> Typ pokoje </th>
     <th> Cena </th>
     <th> Stav </th>
+    <th> Variabilní symbol </th>
   </tr>
   </thead>
   <tbody>
@@ -24,6 +25,7 @@
       <td><%= rooms_name(o.room.typ) %></td>
       <td><%= o.price %></td>
       <td><%= order_status(o.status) %></td>
+      <td><%= o.var_symbol %></td>
       <td><%= link_to 'smazat', o, method: :delete, data: { confirm: 'Jste si jistí?' } if current_user.admin? %></td>
     </tr>
   <% end unless @orders.nil? %>

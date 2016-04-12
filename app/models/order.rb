@@ -22,8 +22,9 @@ class Order < ActiveRecord::Base
   STATUS_ELABORATED = 2
   STATUS_FINISHED = 3
   STATUS_REJECTED = 4
+  STATUS_STORNO = 5
 
-  TYPE_STATUS = [['Nová objednávka',STATUS_NEW],['Čeká na zaplacení', STATUS_ELABORATED],['Uzavřená', STATUS_FINISHED],['Zamítnutá', STATUS_REJECTED]]
+  TYPE_STATUS = [['Nová objednávka',STATUS_NEW],['Čeká na zaplacení', STATUS_ELABORATED],['Uzavřená', STATUS_FINISHED],['Zamítnutá', STATUS_REJECTED], ['Stornovaná', STATUS_STORNO]]
 
   def generate_var_symbol
     count =  Order.this_year.count
