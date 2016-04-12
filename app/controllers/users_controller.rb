@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = params.require(:user).permit([:jmeno,:prijmeni,:email, :admin])
+    user = params.require(:user).permit([:jmeno,:prijmeni,:email,:tel, :address, :admin])
     if @user.update user
       redirect_to users_path, notice: "Uživatel upraven"
     else
