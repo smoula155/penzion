@@ -1,18 +1,18 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-Price = 
+Price =
   price_for_day: (type_rooms) ->
     switch type_rooms
-      when "1" then 2200.0
-      when "2" then 1200
-      when "3" then 3200
-      when "4" then 2200
-      when "5" then 3200
-      when "6" then 8000
+      when "1" then 2700.0
+			when "2" then 1200
+			when "3" then 3200
+			when "4" then 2200
+			when "5" then 3600
+			when "6" then 8500
   price_for_time: (count,type_rooms) ->
     number = @price_for_day(type_rooms) * count
-    if count > 5 
+    if count > 5
       number = procent(number,20)
     else
       if count > 2
@@ -24,12 +24,12 @@ Price =
 
 
 procent = (number,proc) ->
-  one = number / 100 
+  one = number / 100
   number - one * proc
 
 parse_date = (date) ->
   dateParts = date.split("/")
-  date = new Date((dateParts[0]),(dateParts[1] - 1),dateParts[2]) 
+  date = new Date((dateParts[0]),(dateParts[1] - 1),dateParts[2])
 
 betwen_date = (date_from, date_to) ->
   DAY = 1000 * 60 * 60  * 24
@@ -44,7 +44,7 @@ number_to_currency = (number) ->
     separator = if precision > 0 then  '.' else ''
     delimiter =  ' '
     parts = parseFloat(number).toFixed(precision).split('.')
-    number_with_delimiter(parts[0], delimiter) + separator + parts[1].toString() + unit 
+    number_with_delimiter(parts[0], delimiter) + separator + parts[1].toString() + unit
   catch e
     number
 
@@ -82,5 +82,3 @@ ready = ->
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
-
-   

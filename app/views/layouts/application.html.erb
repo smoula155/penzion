@@ -37,7 +37,7 @@
     <![endif]-->
   </head>
   <body>
- 
+
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
       <div class="navbar-header">
@@ -47,15 +47,16 @@
           <span class="icon-bar"></span>
         </button>
         <%= link_to 'Penzion whitezralok', root_path, class:"navbar-brand" %>
-      </div>  
+      </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav navbar-right">
               <li><%= link_to 'Fotogalerie',   pictures_welcome_index_path %></li>
-              <li><%= link_to 'Ceník',   price_list_welcome_index_path %></li>    
+              <li><%= link_to 'Ceník',   price_list_welcome_index_path %></li>
               <li><%= link_to 'Kontakty',  contact_welcome_index_path %></li>
-              <% if current_user.nil? %>  
+              <% if current_user.nil? %>
                 <li><%= link_to "Přihlášení", new_user_session_path  %></li>
                 <li><%= link_to "Registrace", new_user_registration_path%></li>
+                <li><%= link_to "Obchodní podmínky", nil%></li>
               <% else %>
                 <li><%= link_to "Objednávky", orders_path(user: current_user)%> </li>
                 <li><%= link_to current_user.email, edit_user_path(current_user) %></li>
@@ -64,12 +65,12 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Admin area
                   <b class="caret"></b> </a>
                   <ul class="dropdown-menu">
-                    <li><%= link_to "Uživatelé", users_path %></li>    
-                    <li><%= link_to "Obrázky", images_path %></li>    
-                  </ul>    
+                    <li><%= link_to "Uživatelé", users_path %></li>
+                    <li><%= link_to "Obrázky", images_path %></li>
+                  </ul>
                 </li>
               <% end %>
-                <li><%= link_to "Odhlášení",  destroy_user_session_path, method: :delete %> </li> 
+                <li><%= link_to "Odhlášení",  destroy_user_session_path, method: :delete %> </li>
               <% end %>
           </ul>
         </div>
@@ -77,7 +78,7 @@
     </div>
 
     <div class="container">
-      <div class="row">      
+      <div class="row">
         <div class="col-lg-11">
           <%= bootstrap_flash %>
           <%= yield %>
