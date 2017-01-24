@@ -78,9 +78,6 @@ class OrdersController < ApplicationController
       if order_status_first == Order::STATUS_NEW && order_status_second == Order::STATUS_ELABORATED
         UserMailer.elaorated_order(@order).deliver_later
       end
-      if order_status_first == Order::STATUS_ELABORATED && order_status_second == Order::STATUS_FINISHED
-        UserMailer.finished_order(@order).deliver_later
-      end
     end
 
   	def find_user
