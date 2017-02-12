@@ -45,10 +45,8 @@ class OrdersController < ApplicationController
 
    def update
    @order = Order.find params[:id]
-   order_status_first = @order.status
     respond_to do |format|
       if @order.update_attributes(order_params_update)
-        change_order_status(order_status_first, @order.status)
         format.js {}
         format.html { redirect_to orders_path, notice: 'Objednávka byla úspěšně upravena' }
         format.json { head :no_content }
@@ -59,7 +57,6 @@ class OrdersController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   def destroy
@@ -73,12 +70,6 @@ class OrdersController < ApplicationController
   end
 
   private
-
-    def change_order_status(order_status_first,order_status_second)
-      if order_status_first == Order::STATUS_NEW && order_status_second == Order::STATUS_ELABORATED
-        UserMailer.elaorated_order(@order).deliver_later
-      end
-    end
 
   	def find_user
   		@user = User.new()
