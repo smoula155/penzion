@@ -12,7 +12,7 @@
   <tbody>
     <% @images.each do |o|  %>
     <tr>
-      <td><%= o.id %></td>
+      <td><%= image_tag o.picture.url, :size => "100x100"  %></td>
     	<td><%= o.picture_file_name %></td>
     	<td><%= link_to "Zobraz obrázek" ,o.picture.url %></td>
       <td><%= rooms_name o.room_id %></td>
