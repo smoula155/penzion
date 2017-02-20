@@ -24,7 +24,7 @@ module RoomsHelper
 			when Room::ROOMS109
 				'Jednopokojový apartmán s koupelnou, sociálním zařízením a kuchyňským koutem o výměře 46m2. Apartmán má koupelnu vybavenou vanou, umyvadlem a sociálním zařízením. V pokoji je umístěna velká postel pro 2 osoby, rozkládací gauč, jídelní stůl s židlemi a kuchyňský kout pro přípravu pokrmů. Kuchyňská linka vybavena spotřebiči pro přípravu a skladování jídla. V apartmánu se nachází TV a krb.'
 			when Room::ROOMS110
-				'Jednopokojový apartmán o výmeře 22m2 je vybavený manželskou postelý, TV a kuchyňským koutem ,který je vybaven mikrovlnou troubou, jednoplotnkovým indukčním vařičem a rychlovarnou konvicí. Součástí apartmánu je vlastní sociální zařízení s masážní sprchou.'
+				'Jednopokojový apartmán o výměře 22m2 je vybavený manželskou postelí, TV a kuchyňským koutem ,který je vybaven mikrovlnou troubou, jedno plotýnkovým indukčním vařičem a rychlovarnou konvicí. Součástí apartmánu je vlastní sociální zařízení s masážní sprchou.'
 			when Room::ROOMS111
 				'Třípokojový dvoupatrový apartmán s koupelnou se sociálním zařízením, samostatným sociálním zařízením a kuchyňským koutem o výměře 65m2. Apartmán má koupelnu vybavenou vanou, umyvadlem a sociálním zařízením a další samostatné sociální zařízení. Ve spodním patře  se nacházejí 2 pokoje. V jednom je umístěna velká postel pro 2 osoby, skříň a noční stolek, ve druhém pokoji je umístěn gauč se stolkem a kuchynský kout pro přípravu pokrmů. Kuchyňská linka vybavena spotřebiči pro přípravu a skladování jídla. V pokoji je rovněž TV. Ve druhém patře se nachází pokoj vybavený velkou postelí pro 2 osoby a postelí pro jednu osobu.'
 			when Room::ROOMS112
