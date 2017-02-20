@@ -28,11 +28,11 @@ module RoomsHelper
 			when Room::ROOMS111
 				'Třípokojový apartmán o výměře 65m2 s kapacitou 6 osob je složen s dvou samostatných pokojů a podkroví. Jeden pokoj slouží jako společenská místnost, která je vybavena TV, kuchyňským koutem vybaveným jednoplotýnkovým indukčním vařičem, rychlovarnou konvicí, lednicí a mikrovlnou troubou. Druhý sousedící pokoj je vybaven postelí po 2 osoby s přímou možností vstupu do sociálního zařízení, které je vybaveno rohovou masážní vanou.Do sociálního zařízení lze také vstoupit s chodby. Dřevěným schodištěm ze společenské místnosti se dostanete do podkoroví, které je vybaveno postelí pro 2 osoby, samostatnou postelí a matrací která slouží jako přistýlka.'
 			when Room::ROOMS112
-				'Dvoupokojový apartmán o výměře 32m2 s kapacitou 5 osob se skládá s pokoje vybaveným TV, kuchyňským koutem vybaveným jednoplotýnkovým indukčním vařičem, rychlovarnou konvicí, lednicí, elektrickou a mikrovlnou troubou a také rozkládací pohovkou s možností přespání dvou osob. S tohoto pokoje se dřevěným schodištěm dostanete do podkoroví, které je vybaveno třemi samostatnými postelemi. Samozřejmostí je vlastní sociální zařízení s masážní vanou.' 
+				'Dvoupokojový apartmán o výměře 32m2 s kapacitou 5 osob se skládá s pokoje vybaveným TV, kuchyňským koutem vybaveným jednoplotýnkovým indukčním vařičem, rychlovarnou konvicí, lednicí, elektrickou a mikrovlnou troubou a také rozkládací pohovkou s možností přespání dvou osob. S tohoto pokoje se dřevěným schodištěm dostanete do podkoroví, které je vybaveno třemi samostatnými postelemi. Samozřejmostí je vlastní sociální zařízení s masážní vanou.'
 			when Room::ROOMS109110
 				'Pomocí uzamykatelných dveří mezi apartmány 109 a 110 vznikne ubytovací prostor pro 7 osob s dvěma sociálními zařízeními. Při této objednávce je poskytnuta sleva.'
 			when Room::ROOMSall
-				'Možnost pronájmu celého penzionu sestávajíciho ze dvou samostatných a dvou propojitelných apartmánů. Penzion je určen až pro 14 osob. Každý apartmán má vlastní koupelnu a sociální zařízení. Ve třech apartmánech je rovněž kuchyňský kout vybavený spotřebiči pro výrobu a uchování jídla.'
+				'Možnost pronájmu celého penzionu o kapacitě 18 osob. Při této objednávce je poskytnuta sleva.'
 			else
 				'nondef'
 		end
