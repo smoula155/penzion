@@ -54,7 +54,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv', github: "capistrano/rbenv"
   gem 'capistrano-rbenv-install', '~> 1.2.0'
+  gem 'rack-mini-profiler'
 # Add this if you're using rbenv
 # gem 'capistrano-rbenv', github: "capistrano/rbenv"
 end
-
